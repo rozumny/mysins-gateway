@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Nav } from 'ionic-angular';
-import { AppNode } from '../../model/appNode';
-import { Navigation } from '../../services/navigation';
+import { AppNode } from '../models/appNode';
+import { Navigation } from '../services/navigation';
 
-import { Home } from '../../pages/home/home';
+import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class NavigationActual {
 
     constructor(
         private store: Store<AppNode>,
-        //private translate: TranslateService,
+        private translate: TranslateService,
         private navigation: Navigation) {
     }
 
@@ -23,8 +23,8 @@ export class NavigationActual {
     }
 
     private init() {
-        this.homeNode = new AppNode('home', this.translate.instant('page_title_home'), Home);
-        this.homeNode.nodes.set('actionClick', this.tilesNode);
+        this.homeNode = new AppNode('home', this.translate.instant('page_title_home'), HelloIonicPage);
+        // this.homeNode.nodes.set('actionClick', this.tilesNode);
 
         this.navigation.setNodes([
             this.homeNode

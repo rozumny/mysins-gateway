@@ -3,9 +3,6 @@
         <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
             {{p.title}}
         </button>
-        <button *ngIf="hasChanges" ion-item (click)="publish()">
-            {{ 'view-configurations-publish' | translate }}
-       </button>
         <button ion-item (click)="logout(p)">
             {{ 'nav-logout' | translate }}
         </button>

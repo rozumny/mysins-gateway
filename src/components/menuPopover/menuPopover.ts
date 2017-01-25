@@ -1,27 +1,22 @@
-import {Component} from '@angular/core';
-import {Navigation} from '../../providers/navigation';
-import {TranslatePipe} from 'ng2-translate/ng2-translate';
-import {AppNode} from '../../model/appNode';
-import {SigninService} from '../../../services/signin/signinService';
-import {ViewController, MenuController} from 'ionic-angular';
-import {ConfigurationBusinessService} from '../../../businessServices/configuration/configurationBusinessService';
-import {Events} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Navigation } from '../../services/navigation';
+import { AppNode } from '../../models/appNode';
+import { SigninService } from '../../services/signinService';
+import { ViewController, MenuController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 @Component({
     selector: 'menuPopover',
-    templateUrl: 'build/usu-common/components/menuPopover/menuPopover.html',
-    pipes: [TranslatePipe]
+    templateUrl: 'menuPopover.html'
 })
 export class MenuPopover {
     pages: Array<AppNode>;
 
     hasChanges: boolean = false;
-    private configuration: any;
 
     constructor(
         private navigation: Navigation,
         private menu: MenuController,
-        private configurationBusinessService: ConfigurationBusinessService,
         private events: Events,
         private viewCtrl: ViewController,
         private signinService: SigninService) {
@@ -29,29 +24,7 @@ export class MenuPopover {
     }
 
     ngOnInit() {
-        this.refresh();
 
-        this.events.subscribe('updateHasChanged', () => {
-            this.refresh();
-        });
-    }
-
-    publish() {
-        this.viewCtrl.dismiss().then(() => {
-            this.configurationBusinessService.publishConfiguration(this.configuration).then(() => {
-                this.refresh();
-                this.events.publish('refreshConfigurations');
-            });
-        });
-    }
-
-    refresh() {
-        this.configurationBusinessService.load().then((configurations) => {
-            if (configurations && configurations.length > 0) {
-                this.configuration = configurations[0];
-                this.hasChanges = !this.configuration.noRevert && !this.configuration.error && !this.configuration.noPublish && !this.configuration.isPublished;
-            }
-        });
     }
 
     public openPage(node: AppNode): void {

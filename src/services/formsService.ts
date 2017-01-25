@@ -6,10 +6,9 @@ import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/debounce';
 import { Form } from '../models/form';
 import { Control } from '../models/control';
-import { FormDefinition } from '../models/form-definition';
-import { ConfigService } from './config-service';
-import { FormService } from './form-service';
-import { Utils } from './utils-service';
+import { FormDefinition } from '../models/formDefinition';
+import { FormService } from './formService';
+import { UtilsService } from './utilsService';
 
 @Injectable()
 export class FormsService {
@@ -17,9 +16,8 @@ export class FormsService {
     constructor(
         private http: Http,
         private formService: FormService,
-        private configService: ConfigService,
         private formBuilder: FormBuilder,
-        private utilsService: Utils
+        private utilsService: UtilsService
     ) {
     }
 

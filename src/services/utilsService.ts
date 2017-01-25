@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
 
 @Injectable()
-export class Utils {
+export class UtilsService {
     static isCordova(): boolean {
         return !!(<any>window).cordova;
     }

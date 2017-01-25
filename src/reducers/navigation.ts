@@ -1,5 +1,5 @@
-import {Action} from '@ngrx/store';
-import {AppNode} from '../model/appnode';
+import { Action } from '@ngrx/store';
+import { AppNode } from '../models/appnode';
 
 export const NAVIGATE = 'nav';
 

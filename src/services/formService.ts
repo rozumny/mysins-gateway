@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ConfigService } from './config-service';
-import { Utils } from './utils-service';
+import { UtilsService } from './utilsService';
 
 @Injectable()
 export class FormService {
     constructor(
-        private configService: ConfigService,
-        private utilsService: Utils
+        private utilsService: UtilsService
     ) {
     }
 
@@ -20,9 +18,6 @@ export class FormService {
         return {
             getLanguages: () => {
                 return [{ value: 'en', label: 'English' }, { value: 'de', label: 'Deutsch' }];
-            },
-            getMainWindowStartPosition: () => {
-                return [{ value: 'middle', label: 'Middle' }, { value: 'left', label: 'Left' }, { value: 'right', label: 'Right' }];
             }
         };
     };

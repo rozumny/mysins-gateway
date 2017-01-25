@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {Nav} from 'ionic-angular';
-import {AppNode, NavigationType} from '../model/appNode';
-import {NAVIGATE} from '../reducers/navigation';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Nav } from 'ionic-angular';
+import { AppNode, NavigationType } from '../models/appNode';
+import { NAVIGATE } from '../reducers/navigation';
 
 @Injectable()
 export class Navigation {
@@ -96,7 +96,7 @@ export class Navigation {
     }
 
     public pushToNode(node: AppNode) {
-        node.navigationType = NavigationType.Push;
+        node.navigationType = NavigationType.Push;
         this.navigate(node);
     }
 

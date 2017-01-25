@@ -1,13 +1,12 @@
-import {Component, Input} from '@angular/core';
-import {PopoverController, NavController, Platform, MenuController} from 'ionic-angular';
-import {MenuPopover} from '../menuPopover/menuPopover';
-import {Navigation} from '../../providers/navigation';
-import {ConfigurationBusinessService} from '../../../businessServices/configuration/configurationBusinessService';
-import {Events} from 'ionic-angular';
+import { Component, Input } from '@angular/core';
+import { PopoverController, NavController, Platform, MenuController } from 'ionic-angular';
+import { MenuPopover } from '../menuPopover/menuPopover';
+import { Navigation } from '../../services/navigation';
+import { Events } from 'ionic-angular';
 
 @Component({
     selector: 'navbar',
-    templateUrl: 'build/usu-common/components/navbar/navbar.html'
+    templateUrl: 'navbar.html'
 })
 export class Navbar {
     @Input() displayRightMenuButton: boolean;
@@ -19,7 +18,6 @@ export class Navbar {
     constructor(
         private nav: NavController,
         private platform: Platform,
-        private configurationBusinessService: ConfigurationBusinessService,
         private menu: MenuController,
         private events: Events,
         public popoverCtrl: PopoverController,
