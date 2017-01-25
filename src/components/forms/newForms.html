@@ -1,0 +1,19 @@
+<div class="newforms" *ngIf="form">
+    <form (ngSubmit)="onSubmit(form)">
+        <div *ngFor="let control of form.controls">
+            <div [ngSwitch]="control.config.type">
+                <text *ngSwitchCase="'text'" [control]="control" [form]="form"></text>
+                <password *ngSwitchCase="'password'" [control]="control" [form]="form"></password>
+                <number *ngSwitchCase="'number'" [control]="control" [form]="form"></number>
+                <checkbox *ngSwitchCase="'checkbox'" [control]="control" [form]="form"></checkbox>
+                <color *ngSwitchCase="'color'" [control]="control" [form]="form"></color>
+                <localizedtext *ngSwitchCase="'localizedtext'" [control]="control" [form]="form"></localizedtext>
+                <formbutton *ngSwitchCase="'button'" [control]="control" [form]="form"></formbutton>
+                <multiselectcontrol *ngSwitchCase="'combobox'" [control]="control" [form]="form"></multiselectcontrol>
+                <multiselectcontrol *ngSwitchCase="'multiValueCombobox'" [isMultiple]="'true'" [control]="control" [form]="form"></multiselectcontrol>
+                <radio *ngSwitchCase="'radio'" [control]="control" [form]="form"></radio>
+                <div *ngSwitchDefault>NOT IMPLEMENTED {{control.config.type}}</div>
+            </div>
+        </div>
+    </form>
+</div>

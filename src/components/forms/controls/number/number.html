@@ -1,0 +1,8 @@
+<ion-item [class.error]="!control.abstractControl.valid && control.abstractControl.touched">
+    <ion-label stacked>{{ control.config.label | translate }}</ion-label>
+    <ion-input *ngIf="!control.config.focusout" type="number" [(ngModel)]='control.dataObject[control.dataField]' (focusout)="focusOutFunction()"
+        [formControl]="control.abstractControl"></ion-input>
+    <ion-input *ngIf="control.config.focusout" type="number" [(ngModel)]='control.dataObject[control.dataField]' (focusout)="focusOutFunction()"></ion-input>
+</ion-item>
+<div *ngIf="control.abstractControl.hasError('required') && control.abstractControl.touched" class="error-box">* {{ control.config.label | translate }} is required!</div>
+<div *ngIf="control.abstractControl.hasError('minlength') && control.abstractControl.touched" class="error-box">* Minimum {{ control.config.label | translate }} length is 8!</div>
