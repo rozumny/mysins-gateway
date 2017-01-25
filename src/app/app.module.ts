@@ -2,6 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { TranslateLoader, TranslateModule } from 'ng2-translate/ng2-translate';
+import { APP_TRANSLATIONS } from '../app/translations';
+import { Observable } from 'rxjs/Observable';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
@@ -24,6 +26,18 @@ import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { UtilsService } from '../services/utilsService';
 
+export class SlTranslationLoader implements TranslateLoader {
+
+  public getTranslation(lang: string): Observable<any> {
+    let result = {};
+    Object.keys(APP_TRANSLATIONS).forEach(function (key) {
+      result[key] = APP_TRANSLATIONS[key][lang];
+    });
+    console.debug('Translations loaded for "' + lang + '"');
+    return Observable.of(result);
+  }
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +57,8 @@ import { UtilsService } from '../services/utilsService';
     Password
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({ provide: TranslateLoader, useClass: SlTranslationLoader })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
