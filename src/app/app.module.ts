@@ -4,11 +4,15 @@ import { MyApp } from './app.component';
 import { TranslateLoader, TranslateModule } from 'ng2-translate/ng2-translate';
 import { APP_TRANSLATIONS } from '../app/translations';
 import { Observable } from 'rxjs/Observable';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
+import { MenuPopover } from '../components/menuPopover/menuPopover';
+import { Navbar } from '../components/navbar/navbar';
 import { NewForms } from '../components/forms/newForms';
 import { FormButton } from '../components/forms/controls/formbutton/formbutton';
 import { Checkbox } from '../components/forms/controls/checkbox/checkbox';
@@ -25,6 +29,8 @@ import { NavigationActual } from '../services/navigationActual';
 import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { UtilsService } from '../services/utilsService';
+
+import { nav } from '../reducers/navigation';
 
 export class SlTranslationLoader implements TranslateLoader {
 
@@ -45,6 +51,8 @@ export class SlTranslationLoader implements TranslateLoader {
     ItemDetailsPage,
     ListPage,
 
+    Navbar,
+    MenuPopover,
     NewForms,
     Text,
     FormButton,
@@ -58,7 +66,11 @@ export class SlTranslationLoader implements TranslateLoader {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    TranslateModule.forRoot({ provide: TranslateLoader, useClass: SlTranslationLoader })
+    TranslateModule.forRoot({ provide: TranslateLoader, useClass: SlTranslationLoader }),
+    StoreModule.provideStore({ nav }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +79,8 @@ export class SlTranslationLoader implements TranslateLoader {
     ItemDetailsPage,
     ListPage,
 
-
+    Navbar,
+    MenuPopover,
     NewForms,
     Text,
     FormButton,

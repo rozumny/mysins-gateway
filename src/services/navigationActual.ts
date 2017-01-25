@@ -23,7 +23,7 @@ export class NavigationActual {
     }
 
     private init() {
-        this.homeNode = new AppNode('home', this.translate.instant('page_title_home'), HelloIonicPage);
+        this.homeNode = new AppNode('home', this.translate.instant('_common'), HelloIonicPage);
         // this.homeNode.nodes.set('actionClick', this.tilesNode);
 
         this.navigation.setNodes([

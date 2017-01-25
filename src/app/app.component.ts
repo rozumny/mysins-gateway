@@ -1,34 +1,34 @@
-import { Component, ViewChild } from '@angular/core';
+import { Type, Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 
+import { NavigationActual } from '../services/navigationActual';
+import { Navigation } from '../services/navigation';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) private nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage: any = HelloIonicPage;
-  pages: Array<{title: string, component: any}>;
+  private pages: Array<{ title: string, component: any }>;
+  private rootPage: Type<any>;
 
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
+    private navigationActual: NavigationActual,
+    private navigation: Navigation
   ) {
     this.initializeApp();
 
-    // set our app's pages
-    this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
-    ];
+    this.rootPage = HelloIonicPage;
+    this.pages = this.navigation.getMenuNodes();
+    this.navigationActual.setup(this.nav);
   }
 
   initializeApp() {
