@@ -8,6 +8,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 
 import { NavigationActual } from '../services/navigationActual';
 import { Navigation } from '../services/navigation';
+import { LocalStorageService } from '../services/localStorage';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,6 +20,7 @@ export class MyApp {
   private rootPage: Type<any>;
 
   constructor(
+    private localStorageService: LocalStorageService,
     public platform: Platform,
     public menu: MenuController,
     private navigationActual: NavigationActual,
@@ -26,9 +28,22 @@ export class MyApp {
   ) {
     this.initializeApp();
 
-    this.rootPage = HelloIonicPage;
     this.pages = this.navigation.getMenuNodes();
     this.navigationActual.setup(this.nav);
+    this.localStorageService.getObject('nav', true).then((nodeInLocalStorage) => {
+      if (!nodeInLocalStorage || nodeInLocalStorage.length === 0) {
+        this.navigation.setRootToNode(this.navigation.nodes.find(x => x.id === 'signin'));
+      } else {
+        var n = this.navigation.getCurrentNode();
+        if (n !== undefined && n !== this.navigation.nodes[0]) {
+          //  this.signinService.isSignedIn().then((isSignedIn) => {
+          //     if (isSignedIn) {
+          this.navigation.initNode(n);
+          //     }
+          //  });
+        }
+      }
+    });
   }
 
   initializeApp() {

@@ -29,6 +29,7 @@ import { NavigationActual } from '../services/navigationActual';
 import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { UtilsService } from '../services/utilsService';
+import { LocalStorageService } from '../services/localStorage';
 
 import { nav } from '../reducers/navigation';
 
@@ -97,6 +98,7 @@ export class SlTranslationLoader implements TranslateLoader {
     NavigationActual,
     FormService,
     FormsService,
-    UtilsService]
+    UtilsService,
+    LocalStorageService]
 })
 export class AppModule { }
