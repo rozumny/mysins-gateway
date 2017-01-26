@@ -1,7 +1,6 @@
 import { Type, Component, ViewChild } from '@angular/core';
-
+import { TranslateService } from 'ng2-translate';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
@@ -22,11 +21,18 @@ export class MyApp {
   constructor(
     private localStorageService: LocalStorageService,
     public platform: Platform,
+    private translate: TranslateService,
     public menu: MenuController,
     private navigationActual: NavigationActual,
     private navigation: Navigation
   ) {
     this.initializeApp();
+
+    var userLang = navigator.language.split('-')[0];
+    userLang = /(en)/gi.test(userLang) ? userLang : 'en';
+    translate.setDefaultLang('en');
+    translate.use('en');
+
 
     this.pages = this.navigation.getMenuNodes();
     setTimeout(() => {
