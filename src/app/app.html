@@ -2,17 +2,29 @@
 
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pages</ion-title>
+      <ion-buttons end>
+        <button ion-button>
+          nepřihlášen &nbsp;
+          <ion-icon name="contact"></ion-icon>
+        </button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+  <ion-content padding>
+    <newforms [form]="model | async"></newforms>
+    <br/>
+    <button ion-button round small>
+      {{'signin_login' | translate }}
+    </button>
+    <button ion-button round small>
+      {{'signin_register' | translate }}
+    </button>
+
+    <button ion-button clear end item-right style="float:right;"> {{'signin_login_forgot' | translate }}
+</button>
+
+</ion-content>
 
 </ion-menu>
 
