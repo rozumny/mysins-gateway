@@ -1,4 +1,4 @@
-import {} from 'ionic-angular';
+import { } from 'ionic-angular';
 
 export enum NavigationType {
     Push,
@@ -13,6 +13,7 @@ export class AppNode {
     next: AppNode;
     rootNode: AppNode;
     animate: boolean;
+    state: any;
     nodes: Map<String, AppNode>;
     public navigationType: NavigationType;
 
