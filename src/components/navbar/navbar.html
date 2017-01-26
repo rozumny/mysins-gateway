@@ -11,12 +11,7 @@
   </ion-title>
 
   <ion-buttons end *ngIf="displayRightMenuButton">
-    <button *ngIf="isAndroid || !cordova" class="float-right no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only"
-      (click)="open($event)">
-      <ion-icon name="more"></ion-icon>
-    </button>
-    <button *ngIf="!isAndroid && cordova" class="float-right no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only"
-      (click)="openMenu()">
+    <button ion-button (click)="openMenu()">
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-buttons>

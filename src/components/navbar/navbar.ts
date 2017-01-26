@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { PopoverController, NavController, Platform, MenuController } from 'ionic-angular';
-import { MenuPopover } from '../menuPopover/menuPopover';
 import { Navigation } from '../../services/navigation';
 import { Events } from 'ionic-angular';
 
@@ -25,20 +24,13 @@ export class Navbar {
         this.displayRightMenuButton = true;
         this.isAndroid = this.platform.is('android');
         this.cordova = (<any>window).cordova;
-        this.hasBackButton = this.navigation.getCurrentNode().prev != null;
+        this.hasBackButton = this.navigation.getNavigationHistory().length > 1;
     }
 
     ngOnInit() {
         if (!this.title) {
             this.title = this.navigation.getCurrentNode().title;
         }
-    }
-
-    open(ev) {
-        let popover = this.popoverCtrl.create(MenuPopover);
-        popover.present({
-            ev: ev
-        });
     }
 
     openMenu() {

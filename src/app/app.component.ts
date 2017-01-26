@@ -14,7 +14,7 @@ import { LocalStorageService } from '../services/localStorage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) private nav: Nav;
+  @ViewChild(Nav) nav: Nav;
 
   private pages: Array<{ title: string, component: any }>;
   private rootPage: Type<any>;
@@ -29,20 +29,23 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = this.navigation.getMenuNodes();
-    this.navigationActual.setup(this.nav);
-    this.localStorageService.getObject('nav', true).then((nodeInLocalStorage) => {
-      if (!nodeInLocalStorage || nodeInLocalStorage.length === 0) {
-        this.navigation.setRootToNode(this.navigation.nodes.find(x => x.id === 'signin'));
-      } else {
-        var n = this.navigation.getCurrentNode();
-        if (n !== undefined && n !== this.navigation.nodes[0]) {
-          //  this.signinService.isSignedIn().then((isSignedIn) => {
-          //     if (isSignedIn) {
-          this.navigation.initNode(n);
-          //     }
-          //  });
+    setTimeout(() => {
+      this.navigationActual.setup(this.nav);
+
+      this.localStorageService.getObject('nav', true).then((nodeInLocalStorage) => {
+        if (!nodeInLocalStorage || nodeInLocalStorage.length === 0) {
+          this.navigation.setRootToNode(this.navigation.nodes.find(x => x.id === 'home'));
+        } else {
+          var n = this.navigation.getCurrentNode();
+          if (n !== undefined && n !== this.navigation.nodes[0]) {
+            //  this.signinService.isSignedIn().then((isSignedIn) => {
+            //     if (isSignedIn) {
+            this.navigation.initNode(n);
+            //     }
+            //  });
+          }
         }
-      }
+      });
     });
   }
 

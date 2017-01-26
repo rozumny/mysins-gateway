@@ -11,7 +11,6 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
-import { MenuPopover } from '../components/menuPopover/menuPopover';
 import { Navbar } from '../components/navbar/navbar';
 import { NewForms } from '../components/forms/newForms';
 import { FormButton } from '../components/forms/controls/formbutton/formbutton';
@@ -29,6 +28,7 @@ import { NavigationActual } from '../services/navigationActual';
 import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { UtilsService } from '../services/utilsService';
+import { SigninService } from '../services/signinService';
 import { LocalStorageService } from '../services/localStorage';
 
 import { nav } from '../reducers/navigation';
@@ -53,7 +53,6 @@ export class SlTranslationLoader implements TranslateLoader {
     ListPage,
 
     Navbar,
-    MenuPopover,
     NewForms,
     Text,
     FormButton,
@@ -81,7 +80,6 @@ export class SlTranslationLoader implements TranslateLoader {
     ListPage,
 
     Navbar,
-    MenuPopover,
     NewForms,
     Text,
     FormButton,
@@ -99,6 +97,7 @@ export class SlTranslationLoader implements TranslateLoader {
     FormService,
     FormsService,
     UtilsService,
+    SigninService,
     LocalStorageService]
 })
 export class AppModule { }

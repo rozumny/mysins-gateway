@@ -23,13 +23,13 @@ export class NavigationActual {
     }
 
     private init() {
-        this.homeNode = new AppNode('home', this.translate.instant('_common'), HelloIonicPage);
+        this.homeNode = new AppNode('home', this.translate.instant('home_title'), HelloIonicPage);
         // this.homeNode.nodes.set('actionClick', this.tilesNode);
 
         this.navigation.setNodes([
             this.homeNode
         ]);
         this.navigation.setMenuNodes([this.homeNode]);
-        this.navigation.setCurrentNode(this.homeNode);
+        //    this.navigation.setCurrentNode(this.homeNode);
     }
 }
