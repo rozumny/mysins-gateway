@@ -1,16 +1,20 @@
-import { Type, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-
 import { NavigationActual } from '../services/navigationActual';
 import { Navigation } from '../services/navigation';
 import { LocalStorageService } from '../services/localStorage';
 import { FormsService } from '../services/formsService';
+import { ModalService } from '../services/modalService';
+import { SigninService } from '../services/signinService';
 import { FormDefinition } from '../models/formDefinition';
 import { Form } from '../models/form';
+import { Events } from 'ionic-angular';
+import { Store } from '@ngrx/store';
+import { REGISTER, LOGIN } from '../reducers/userstatus';
+import { SETUSER } from '../reducers/user';
+import { User } from '../models/user';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,19 +23,36 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   private pages: Array<{ title: string, component: any }>;
-  private rootPage: Type<any>;
   private model: Promise<Form>;
+  private signinData: any = {};
+  private userStatus: string;
+  public REGISTER: string = REGISTER;
+  public LOGIN: string = LOGIN;
+  public user: User;
 
   constructor(
     private localStorageService: LocalStorageService,
     public platform: Platform,
     private translate: TranslateService,
     public menu: MenuController,
+    private events: Events,
     private navigationActual: NavigationActual,
     private navigation: Navigation,
-    private formsService: FormsService
+    private formsService: FormsService,
+    private modalService: ModalService,
+    private store: Store<string>,
+    private signinService: SigninService
   ) {
     this.initializeApp();
+
+    this.store.select('userStatus').subscribe((value: string) => {
+      this.userStatus = value;
+    });
+
+    this.store.select('user').subscribe((value: User) => {
+      this.user = value;
+    });
+
 
     var userLang = navigator.language.split('-')[0];
     userLang = /(cz|en)/gi.test(userLang) ? userLang : 'en';
@@ -54,37 +75,22 @@ export class MyApp {
           type: 'password',
           label: 'signin_password_repeat',
           name: 'password_repeat',
-          onhide: 'onregister'
+          onshow: 'onregister',
+          onhide: 'onlogin',
+          hide: true
         },
         {
           type: 'text',
           label: 'signin_email',
           name: 'email',
-          onhide: 'onregister'
-        },
-        // {
-        //   type: 'button',
-        //   label: 'signin_login',
-        //   name: 'login',
-        //   onClick: 'login'
-        // },
-        // {
-        //   type: 'button',
-        //   label: 'signin_register',
-        //   name: 'register',
-        //   onClick: 'register'
-        // }
-        // // ,
-        // // {
-        // //   type: 'button',
-        // //   label: 'signin_forgot_password',
-        // //   name: 'forgot_password',
-        // //   onClick: 'forgot_password'
-        // // },
+          onshow: 'onregister',
+          onhide: 'onlogin',
+          hide: true
+        }
       ]
     }
 
-    this.model = this.formsService.getNewFormModel(formDefinition, false)
+    this.model = this.formsService.getNewFormModel(formDefinition, true, this.signinData)
 
 
     this.pages = this.navigation.getMenuNodes();
@@ -122,5 +128,33 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  login() {
+    if (this.userStatus == LOGIN) {
+      this.modalService.showWait(this.signinService.signin(this.signinData.username, this.signinData.password)).then((user) => {
+        this.store.dispatch({ type: SETUSER, payload: user })
+      });
+    } else {
+      this.store.dispatch({ type: LOGIN });
+      this.events.publish('onlogin');
+    }
+  }
+
+  signout() {
+    this.signinService.signout().then(() => {
+      this.store.dispatch({ type: SETUSER, payload: null });
+    });
+  }
+
+  register() {
+    if (this.userStatus == REGISTER) {
+      this.modalService.showWait(this.signinService.register(this.signinData.username, this.signinData.password, this.signinData.passwordRepeat, this.signinData.email)).then((user) => {
+        this.store.dispatch({ type: SETUSER, payload: user });
+      });
+    } else {
+      this.store.dispatch({ type: REGISTER });
+      this.events.publish('onregister');
+    }
   }
 }

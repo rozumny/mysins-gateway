@@ -6,14 +6,11 @@
     </button>
   </ion-buttons>
 
-  <ion-title>
+  <!--<ion-title>
     {{title}}
-  </ion-title>
+  </ion-title>-->
 
   <ion-buttons end *ngIf="displayRightMenuButton">
-    <button ion-button (click)="openMenu()">
-      nepřihlášen &nbsp;
-      <ion-icon name="contact"></ion-icon>
-    </button>
+    <userinfo></userinfo>
   </ion-buttons>
 </ion-navbar>

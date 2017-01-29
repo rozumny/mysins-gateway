@@ -31,4 +31,8 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: 'email',
         cz: 'email'
     },
+    signin_signout: {
+        en: 'signout',
+        cz: 'odhlásit'
+    },
 };

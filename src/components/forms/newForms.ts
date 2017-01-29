@@ -12,6 +12,7 @@ export class NewForms {
     }
 
     onSubmit(form: Form) {
+        console.log('submit form');
         if (form.authForm.valid) {
             // alert('fadsfas');
         }

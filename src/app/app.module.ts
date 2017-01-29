@@ -22,6 +22,7 @@ import { Number } from '../components/forms/controls/number/number';
 import { Password } from '../components/forms/controls/password/password';
 import { RadioControl } from '../components/forms/controls/radio/radio';
 import { MultiSelectControl } from '../components/forms/controls/multiselectcontrol/multiselectcontrol';
+import { UserInfo } from '../components/userInfo/userInfo';
 
 import { Navigation } from '../services/navigation';
 import { NavigationActual } from '../services/navigationActual';
@@ -30,10 +31,13 @@ import { FormsService } from '../services/formsService';
 import { UtilsService } from '../services/utilsService';
 import { SigninService } from '../services/signinService';
 import { LocalStorageService } from '../services/localStorage';
+import { ModalService } from '../services/modalService';
 
 import { nav } from '../reducers/navigation';
+import { userStatus } from '../reducers/userstatus';
+import { user } from '../reducers/user';
 
-export class SlTranslationLoader implements TranslateLoader {
+export class mySinsTranslationLoader implements TranslateLoader {
 
   public getTranslation(lang: string): Observable<any> {
     let result = {};
@@ -62,12 +66,13 @@ export class SlTranslationLoader implements TranslateLoader {
     RadioControl,
     Number,
     Color,
-    Password
+    Password,
+    UserInfo
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    TranslateModule.forRoot({ provide: TranslateLoader, useClass: SlTranslationLoader }),
-    StoreModule.provideStore({ nav }),
+    TranslateModule.forRoot({ provide: TranslateLoader, useClass: mySinsTranslationLoader }),
+    StoreModule.provideStore({ nav, userStatus, user }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     })
@@ -89,7 +94,8 @@ export class SlTranslationLoader implements TranslateLoader {
     RadioControl,
     Number,
     Color,
-    Password
+    Password,
+    UserInfo
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler },
     Navigation,
@@ -97,6 +103,7 @@ export class SlTranslationLoader implements TranslateLoader {
     FormService,
     FormsService,
     UtilsService,
+    ModalService,
     SigninService,
     LocalStorageService]
 })
