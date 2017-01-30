@@ -49,8 +49,8 @@ export class MyApp {
       this.userStatus = value;
     });
 
-    this.store.select('user').subscribe((value: User) => {
-      this.user = value;
+    this.store.select('user').subscribe((user: User) => {
+      this.user = user;
     });
 
 
@@ -133,8 +133,11 @@ export class MyApp {
   login() {
     if (this.userStatus == LOGIN) {
       this.modalService.showWait(this.signinService.signin(this.signinData.username, this.signinData.password)).then((user) => {
-        this.store.dispatch({ type: SETUSER, payload: user })
-      });
+        this.store.dispatch({ type: SETUSER, payload: user });
+      },
+        () => {
+          this.modalService.createToast('signin_auth_failed').present();
+        });
     } else {
       this.store.dispatch({ type: LOGIN });
       this.events.publish('onlogin');
@@ -151,6 +154,8 @@ export class MyApp {
     if (this.userStatus == REGISTER) {
       this.modalService.showWait(this.signinService.register(this.signinData.username, this.signinData.password, this.signinData.passwordRepeat, this.signinData.email)).then((user) => {
         this.store.dispatch({ type: SETUSER, payload: user });
+      }, () => {
+        this.modalService.createToast('signin_registration_failed').present();
       });
     } else {
       this.store.dispatch({ type: REGISTER });

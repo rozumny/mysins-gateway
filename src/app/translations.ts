@@ -35,4 +35,12 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: 'signout',
         cz: 'odhlásit'
     },
+    signin_auth_failed: {
+        en: "Authentication failed. User not found or password doesn't match.",
+        cz: 'Přihlašování selhalo. Uživatel neexistuje nebo heslo neodpovídá.'
+    },
+    signin_registration_failed: {
+        en: "Registration failed.",
+        cz: 'Registrace selhala.'
+    }
 };

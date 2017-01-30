@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { UtilsService } from './utilsService';
+import { LocalStorageService } from './localStorage';
 import { User } from '../models/user';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class SigninService {
+
+    public apiUrl: string = "http://localhost:8080/api/users/";
+
     constructor(
-        private utilsService: UtilsService
+        private utilsService: UtilsService,
+        private localStorageService: LocalStorageService,
+        private http: Http
     ) {
     }
 
@@ -20,8 +27,13 @@ export class SigninService {
             var user = new User();
             user.username = username;
             user.password = password;
-            //TODO: get email from server
-            resolve(user);
+            this.http.post(this.apiUrl + "/auth/", user)
+                .map(res => res.json())
+                .subscribe(response => {
+                    resolve(response);
+                }, error => {
+                    reject(error);
+                });
         });
     }
 
@@ -31,7 +43,13 @@ export class SigninService {
             user.username = username;
             user.password = password;
             user.email = email;
-            resolve(user);
+            this.http.post(this.apiUrl, user)
+                .map(res => res.json())
+                .subscribe(response => {
+                    resolve(response);
+                }, error => {
+                    reject(error);
+                });
         });
     }
 }
