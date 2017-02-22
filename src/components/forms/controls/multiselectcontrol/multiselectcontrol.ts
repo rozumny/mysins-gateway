@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Control } from '../../../../models/control';
 import { Form } from '../../../../models/form';
 import { FormService } from '../../../../services/formService';
-import { UtilsService } from '../../../../services/utilsService';
+import { Utils } from '../../../../services/utilsService';
 import { Events } from 'ionic-angular';
 
 @Component({
@@ -17,7 +17,7 @@ export class MultiSelectControl {
 
     constructor(
         private formService: FormService,
-        private utilsService: UtilsService,
+        private utilsService: Utils,
         private events: Events
     ) {
     }

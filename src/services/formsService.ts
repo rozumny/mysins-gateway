@@ -8,7 +8,7 @@ import { Form } from '../models/form';
 import { Control } from '../models/control';
 import { FormDefinition } from '../models/formDefinition';
 import { FormService } from './formService';
-import { UtilsService } from './utilsService';
+import { Utils } from './utilsService';
 
 @Injectable()
 export class FormsService {
@@ -17,7 +17,7 @@ export class FormsService {
         private http: Http,
         private formService: FormService,
         private formBuilder: FormBuilder,
-        private utilsService: UtilsService
+        private utilsService: Utils
     ) {
     }
 

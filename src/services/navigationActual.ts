@@ -18,8 +18,8 @@ export class NavigationActual {
     }
 
     public setup(nav: Nav) {
-        this.navigation.init(nav, this.store);
         this.init();
+        this.navigation.init(nav, this.store);
     }
 
     private init() {

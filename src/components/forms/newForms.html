@@ -3,6 +3,7 @@
         <div *ngFor="let control of form.controls">
             <div [ngSwitch]="control.config.type">
                 <text *ngSwitchCase="'text'" [control]="control" [form]="form"></text>
+                <email *ngSwitchCase="'email'" [control]="control" [form]="form"></email>
                 <password *ngSwitchCase="'password'" [control]="control" [form]="form"></password>
                 <number *ngSwitchCase="'number'" [control]="control" [form]="form"></number>
                 <checkbox *ngSwitchCase="'checkbox'" [control]="control" [form]="form"></checkbox>

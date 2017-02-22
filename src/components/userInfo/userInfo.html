@@ -1,0 +1,8 @@
+<button clear ion-button *ngIf="user" menuToggle>
+          {{user.username}} &nbsp;
+          <ion-icon name="contact"></ion-icon>
+        </button>
+<button clear ion-button *ngIf="!user" menuToggle>
+          nepřihlášen &nbsp;
+          <ion-icon name="contact"></ion-icon>
+        </button>

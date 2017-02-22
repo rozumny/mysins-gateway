@@ -10,7 +10,9 @@
 
   <ion-content>
     <div *ngIf="!user" padding>
-      <newforms [form]="model | async"></newforms>
+      {{userStatus.type}}
+      <newforms *ngIf="userStatus.type == 'LOGIN'" [form]="modelLogin | async"></newforms>
+      <newforms *ngIf="userStatus.type == 'REGISTER'" [form]="modelRegister | async"></newforms>
       <br/>
       <button ion-button round small (click)="login()">
       {{'signin_login' | translate }}
@@ -21,68 +23,68 @@
 
       <button ion-button clear end item-right style="float:right;"> {{'signin_login_forgot' | translate }}
 </button>
-</div>
+    </div>
 
-<div *ngIf="user" padding>
-  <ion-row class="text-align-center">
-    <ion-col>
-      Tvoje statistika
-    </ion-col>
-  </ion-row>
-  <ion-row class="text-align-center">
-    <ion-col>
-      Tvůj počet odpuštěných hříchů
-    </ion-col>
-  </ion-row>
-  <ion-row class="text-align-center">
-    <ion-col>
-      22
-    </ion-col>
-  </ion-row>
-  <br/>
-  <ion-row class="text-align-center">
-    <ion-col>
-      Tvoje příspěvky
-    </ion-col>
-  </ion-row>
-  <ion-row class="text-align-center">
-    <ion-col>
-      1111 Kč
-    </ion-col>
-  </ion-row>
-  <br/>
-  <ion-row class="text-align-center">
-    <ion-col>
-      Nejoblíbenější hřích
-    </ion-col>
-  </ion-row>
-  <ion-row class="text-align-center">
-    <ion-col>
-      Moje děti nemají co do huby a já se stejně přežral jako prase
-    </ion-col>
-  </ion-row>
-  <br/>
-  <ion-row class="text-align-center">
-    <ion-col>
-      TVÉ POKÁNÍ BUDE ODESLÁNO DO VEŘEJNÉ STATISTIKY
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col style="margin-left: 43%;">
-<ion-toggle></ion-toggle>
-</ion-col>
-</ion-row>
-</div>
+    <div *ngIf="user" padding>
+      <ion-row class="text-align-center">
+        <ion-col>
+          Tvoje statistika
+        </ion-col>
+      </ion-row>
+      <ion-row class="text-align-center">
+        <ion-col>
+          Tvůj počet odpuštěných hříchů
+        </ion-col>
+      </ion-row>
+      <ion-row class="text-align-center">
+        <ion-col>
+          {{ sinsCount }}
+        </ion-col>
+      </ion-row>
+      <br/>
+      <ion-row class="text-align-center">
+        <ion-col>
+          Tvoje příspěvky
+        </ion-col>
+      </ion-row>
+      <ion-row class="text-align-center">
+        <ion-col>
+          {{ sinsTotal }} Kč
+        </ion-col>
+      </ion-row>
+      <br/>
+      <ion-row *ngIf="popularSin" class="text-align-center">
+        <ion-col>
+          Nejoblíbenější hřích
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="popularSin" class="text-align-center">
+        <ion-col>
+          {{ popularSin.description }}
+        </ion-col>
+      </ion-row>
+      <br/>
+      <ion-row class="text-align-center">
+        <ion-col>
+          TVÉ POKÁNÍ BUDE ODESLÁNO DO VEŘEJNÉ STATISTIKY
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="margin-left: 43%;">
+          <ion-toggle [(ngModel)]="user.public" (ionChange)="changePublic()"></ion-toggle>
+        </ion-col>
+      </ion-row>
+    </div>
 
-<ion-footer>
-  <ion-toolbar *ngIf="user">
-    <ion-buttons end>
-      <button ion-button clear (click)="signout()"> {{'signin_signout' | translate }}
+    <ion-footer>
+      <ion-toolbar *ngIf="user">
+        <ion-buttons end>
+          <button ion-button clear (click)="signout()"> {{'signin_signout' | translate }}
   </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
-</ion-content>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-content>
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

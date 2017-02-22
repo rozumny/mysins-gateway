@@ -5,8 +5,9 @@ import { TranslateLoader, TranslateModule } from 'ng2-translate/ng2-translate';
 import { APP_TRANSLATIONS } from '../app/translations';
 import { Observable } from 'rxjs/Observable';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
-
+import { StoreModule, combineReducers } from '@ngrx/store';
+import { compose } from '@ngrx/core/compose';
+import { localStorageSync } from 'ngrx-store-localstorage';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
@@ -17,6 +18,7 @@ import { FormButton } from '../components/forms/controls/formbutton/formbutton';
 import { Checkbox } from '../components/forms/controls/checkbox/checkbox';
 import { LocalizedText } from '../components/forms/controls/localizedtext/localizedtext';
 import { Text } from '../components/forms/controls/text/text';
+import { Email } from '../components/forms/controls/email/email';
 import { Color } from '../components/forms/controls/color/color';
 import { Number } from '../components/forms/controls/number/number';
 import { Password } from '../components/forms/controls/password/password';
@@ -28,10 +30,11 @@ import { Navigation } from '../services/navigation';
 import { NavigationActual } from '../services/navigationActual';
 import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
-import { UtilsService } from '../services/utilsService';
+import { Utils } from '../services/utilsService';
 import { SigninService } from '../services/signinService';
 import { LocalStorageService } from '../services/localStorage';
 import { ModalService } from '../services/modalService';
+import { SinsService } from '../services/sinsService';
 
 import { nav } from '../reducers/navigation';
 import { userStatus } from '../reducers/userstatus';
@@ -59,6 +62,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     Navbar,
     NewForms,
     Text,
+    Email,
     FormButton,
     Checkbox,
     LocalizedText,
@@ -72,7 +76,11 @@ export class mySinsTranslationLoader implements TranslateLoader {
   imports: [
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({ provide: TranslateLoader, useClass: mySinsTranslationLoader }),
-    StoreModule.provideStore({ nav, userStatus, user }),
+    StoreModule.provideStore(
+      compose(
+        localStorageSync(['nav', 'userStatus', 'user'], true),
+        combineReducers
+      )({ nav, userStatus, user })),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     })
@@ -87,6 +95,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     Navbar,
     NewForms,
     Text,
+    Email,
     FormButton,
     Checkbox,
     LocalizedText,
@@ -102,9 +111,10 @@ export class mySinsTranslationLoader implements TranslateLoader {
     NavigationActual,
     FormService,
     FormsService,
-    UtilsService,
+    Utils,
     ModalService,
     SigninService,
+    SinsService,
     LocalStorageService]
 })
 export class AppModule { }

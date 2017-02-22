@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { UtilsService } from './utilsService';
+import { Utils } from './utilsService';
 
 @Injectable()
 export class FormService {
     constructor(
-        private utilsService: UtilsService
+        private utilsService: Utils
     ) {
     }
 
