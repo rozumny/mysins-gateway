@@ -1,18 +1,25 @@
-<ion-header>
+<ion-header color="primary">
   <navbar [title]="pageTitle"></navbar>
 </ion-header>
 
-<ion-content>
-  <ion-toolbar>
-    <ion-buttons end>
-      <button ion-button color="primary">Skip</button>
-    </ion-buttons>
-  </ion-toolbar>
+<ion-content text-center text-uppercase class="secondarybg">
+  <ion-row margin-top>
+    <ion-col>
+      <img style="height:65px" src="assets/jesussmall.png" />
+    </ion-col>
+  </ion-row>
+  <ion-row margin-bottom>
+    <ion-col>
+      Jak jsi zhresil?
+    </ion-col>
+  </ion-row>
 
-  <ion-slides pager style="max-height:400px">
-    <ion-slide style="background-color: green">
-      <h2 class="slide-title">fasdfa</h2>
-      <p>fasdfas</p>
+  <ion-slides pager style="height:45%">
+    <ion-slide class="sin1bg">
+      <div margin-top>
+        <img style="height:85px" src="assets/sins/sin1.png" />
+        <p>Obzerstvi</p>
+      </div>
     </ion-slide>
 
     <ion-slide style="background-color: blue">
@@ -25,11 +32,9 @@
 
   </ion-slides>
 
-  <ion-footer>
-    <ion-toolbar>
-      <ion-buttons end>
-        <button ion-button color="primary">Skip</button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-row margin-top>
+    <button ion-fab style="margin:10px auto;">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-row>
 </ion-content>
