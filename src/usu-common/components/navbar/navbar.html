@@ -1,0 +1,20 @@
+<ion-navbar primary hideBackButton align-title="center">
+  <ion-buttons left>
+    <button class="no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only" *ngIf="hasBackButton" (click)="pop()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title>
+    {{title}}
+  </ion-title>
+
+  <ion-buttons end *ngIf="displayRightMenuButton">
+    <button *ngIf="isAndroid || !cordova" class="float-right no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only" (click)="open($event)">
+      <ion-icon name="more"></ion-icon>
+    </button>
+    <button *ngIf="!isAndroid && cordova" class="float-right no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only" (click)="openMenu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
