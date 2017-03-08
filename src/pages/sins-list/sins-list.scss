@@ -8,3 +8,52 @@
 {
     background-color: color($colors, primary) !important;
 }
+.topPart {
+      height:70%;
+    background: url("../assets/jesussmall.png") no-repeat 35% 10%;
+    background-size: contain;
+    background-position: 50% 40%;
+}
+.descriptionPart {
+    //  height:20%;
+    font-weight: bold;
+}
+// .bottomPart {
+//     height: 50px;
+// }
+.bg0 {
+    // background: url("../assets/sins/1.png") no-repeat 35% 10%;
+    background-color:#FF83C5;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}
+.bg1 {
+    // background: url("../assets/sins/2.png") no-repeat 35% 10%;
+    background-color:#BD4562;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}
+.bg2 {
+    // background: url("../assets/sins/3.png") no-repeat 35% 10%;
+    background-color:#73ADD5;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}
+.bg3 {
+    // background: url("../assets/sins/4.png") no-repeat 35% 10%;
+    background-color:#FFC03D;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}
+.bg4 {
+    // background: url("../assets/sins/5.png") no-repeat 35% 10%;
+    background-color:#51546B;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}
+.bg5 {
+    // background: url("../assets/sins/6.png") no-repeat 35% 10%;
+    background-color:#6FC259;
+    // background-size: contain;
+    // background-position: 50% 40%;
+}

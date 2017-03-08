@@ -47,13 +47,37 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "Registration successful.",
         cz: 'Registrace proběhla úspěšně.'
     },
+    sins_list_title: {
+        en: "...",
+        cz: 'Jak jsi zhřešil?'
+    },
     form_label_field_required: {
         en: "please fill",
         cz: 'prosím vyplňte'
     },
     sins_type_0: {
-        en: "Sex",
+        en: "...",
         cz: 'Sex'
+    },
+    sins_type_1: {
+        en: "...",
+        cz: 'Alkohol'
+    },
+    sins_type_2: {
+        en: "...",
+        cz: 'Drogy'
+    },
+    sins_type_3: {
+        en: "...",
+        cz: 'Obžerství'
+    },
+    sins_type_4: {
+        en: "...",
+        cz: 'Lež'
+    },
+    sins_type_5: {
+        en: "...",
+        cz: 'Za volantem'
     },
     sins_question_0: {
         en: "...",

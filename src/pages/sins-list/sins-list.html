@@ -2,39 +2,40 @@
   <navbar [title]="pageTitle"></navbar>
 </ion-header>
 
-<ion-content text-center text-uppercase class="secondarybg">
-  <ion-row margin-top>
-    <ion-col>
-      <img style="height:65px" src="assets/jesussmall.png" />
-    </ion-col>
-  </ion-row>
-  <ion-row margin-bottom>
-    <ion-col>
-      Jak jsi zhresil?
-    </ion-col>
-  </ion-row>
-
-  <ion-slides pager style="height:45%">
-    <ion-slide class="sin1bg">
-      <div margin-top>
-        <img style="height:85px" src="assets/sins/sin1.png" />
-        <p>Obzerstvi</p>
+<ion-content text-center scroll="false" text-uppercase class="secondarybg">
+  <div style="height:40%;">
+    <ion-row class="topPart">
+    </ion-row>
+    <ion-row>
+      <ion-col class="descriptionPart">
+        {{'sins_list_title' | translate}}
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-slides pager style="height:60%;" *ngIf="sins">
+    <ion-slide *ngFor="let sin of sins; let i=index;" [class.bg0]="getClass(sin, 0)" [class.bg1]="getClass(sin, 1)" [class.bg2]="getClass(sin, 2)"
+      [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
+      <img style="height:80px;" src="assets/sins/{{i+1}}.png" />
+      <div>
+        <p>{{sin.title | translate}}</p>
       </div>
+      <!--<div class="topPart1">
+        &nbsp;
+      </div>-->
     </ion-slide>
-
-    <ion-slide style="background-color: blue">
-      <h2>Slide 2</h2>
-    </ion-slide>
-
-    <ion-slide style="background-color: red">
-      <h2>Slide 3</h2>
-    </ion-slide>
-
   </ion-slides>
 
-  <ion-row margin-top>
-    <button ion-fab style="margin:10px auto;">
+  <!--<ion-row class='bottomPart'>
+    <button ion-fab style="margin:10px auto">
       <ion-icon name="add"></ion-icon>
     </button>
-  </ion-row>
+  </ion-row>-->
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-fab style="margin:10px auto">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

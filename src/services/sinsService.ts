@@ -4,12 +4,11 @@ import { Sin } from '../models/sin';
 @Injectable()
 export class SinsService {
 
+    private sins: any;
+
     constructor(
     ) {
-    }
-
-    getById(id: string): Promise<Sin> {
-        var sins = {
+        this.sins = {
             0: {
                 title: "sins_type_0",
                 questions: {
@@ -280,7 +279,6 @@ export class SinsService {
                     }
                 }
             },
-
             2: {
                 title: "sins_type_2",
                 questions: {
@@ -442,9 +440,15 @@ export class SinsService {
                         }
                     }
                 }
-            },
-
+            }
         };
-        return Promise.resolve(sins[id]);
+    }
+
+    getById(id: string): Promise<Sin> {
+        return Promise.resolve(this.sins[id]);
+    }
+
+    getAll(): Promise<Sin[]> {
+        return Promise.resolve(this.sins);
     }
 }

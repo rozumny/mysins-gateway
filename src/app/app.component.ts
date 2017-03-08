@@ -15,7 +15,7 @@ import { Form } from '../models/form';
 import { Events } from 'ionic-angular';
 import { Store } from '@ngrx/store';
 import { REGISTER, LOGIN } from '../reducers/userstatus';
-import { SETUSER } from '../reducers/user';
+// import { SETUSER } from '../reducers/user';
 import { User } from '../models/user';
 import { UserStatus } from '../models/userStatus';
 import { Sin } from '../models/sin';
