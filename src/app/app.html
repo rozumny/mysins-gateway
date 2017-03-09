@@ -8,7 +8,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="menuToolbar">
     <div *ngIf="!user" padding>
       <!--{{userStatus.type}}-->
       <newforms *ngIf="userStatus.type == 'LOGIN'" [form]="modelLogin | async"></newforms>
@@ -78,7 +78,7 @@
     <ion-footer>
       <ion-toolbar *ngIf="user">
         <ion-buttons end>
-          <button ion-button clear (click)="signout()"> {{'signin_signout ' | translate }}
+          <button ion-button clear (click)="signout()"> {{'signin_signout' | translate }}
   </button>
         </ion-buttons>
       </ion-toolbar>

@@ -19,7 +19,44 @@ button {
 .white {
     color:white;
 }
-.menuToolbar .toolbar-background {
-    color: white;
+.menuToolbar {
+    button {
+        font-size: 13px;
+    }
+
     background-color: color($colors, primary);
+
+    .item-input.input-has-focus .item-inner {
+            border-bottom-color: white;
+    }
+
+    .inputColor {
+        color:white;
+    }
+
+    .input-has-focus .label[floating],
+    .input-has-value .label[floating] {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .label {
+        text-align: right;
+        color: #c2360f !important;
+    }
+
+    .text-input {
+        text-align: right;
+    }
+
+    .input-has-focus .label[floating],
+    .input-has-value .label[floating] {
+        font-size: 13px;
+        color: white !important;
+    }
+
+    .toolbar-background {
+        color: white;
+        background-color: color($colors, primary);
+    }
 }

@@ -1,6 +1,6 @@
-<ion-item *ngIf="show" [class.error]="!control.abstractControl.valid && control.abstractControl.touched">
-    <ion-label floating>{{ control.config.label | translate }}</ion-label>
-    <ion-input type="text" [(ngModel)]='control.dataObject[control.dataField]' [formControl]="control.abstractControl"></ion-input>
+<ion-item class="primarybg inputColor" *ngIf="show" [class.error]="!control.abstractControl.valid && control.abstractControl.touched">
+    <ion-label class="label" floating>{{ control.config.label | translate }}</ion-label>
+    <ion-input type="text" class="placeholder-text" [(ngModel)]='control.dataObject[control.dataField]' [formControl]="control.abstractControl"></ion-input>
 </ion-item>
 <div *ngIf="control.abstractControl.hasError('required') && control.abstractControl.touched" class="error-box">* {{ 'form_label_field_required' | translate}} {{ control.config.label | translate }}</div>
 <!--<div *ngIf="control.abstractControl.hasError('minlength') && control.abstractControl.touched" class="error-box">* Minimum {{ control.config.label | translate }} length is 8!</div>-->

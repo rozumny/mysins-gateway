@@ -26,7 +26,7 @@ import { Sin } from '../models/sin';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  private pages: Array<{ title: string, component: any }>;
+  // private pages: Array<{ title: string, component: any }>;
   private modelLogin: Promise<Form>;
   private modelRegister: Promise<Form>;
   private signinData: any = {};
