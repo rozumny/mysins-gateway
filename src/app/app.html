@@ -1,6 +1,6 @@
 <ion-menu side="right" [content]="content">
 
-  <ion-header>
+  <ion-header class="menuToolbar">
     <ion-toolbar>
       <ion-buttons end>
         <userinfo></userinfo>
@@ -10,18 +10,17 @@
 
   <ion-content>
     <div *ngIf="!user" padding>
-      {{userStatus.type}}
+      <!--{{userStatus.type}}-->
       <newforms *ngIf="userStatus.type == 'LOGIN'" [form]="modelLogin | async"></newforms>
       <newforms *ngIf="userStatus.type == 'REGISTER'" [form]="modelRegister | async"></newforms>
       <br/>
-      <button ion-button round small (click)="login()">
+      <button class="lower white" color='orange' ion-button round small (click)="login()">
       {{'signin_login' | translate }}
     </button>
-      <button ion-button round small (click)="register()">
+      <button class="lower white" color='orange' ion-button round small (click)="register()">
       {{'signin_register' | translate }}
     </button>
-
-      <button ion-button clear end item-right style="float:right;"> {{'signin_login_forgot' | translate }}
+      <button ion-button clear end item-right style="float:right;"> {{'signin_login_forgot ' | translate }}
 </button>
     </div>
 
@@ -79,7 +78,7 @@
     <ion-footer>
       <ion-toolbar *ngIf="user">
         <ion-buttons end>
-          <button ion-button clear (click)="signout()"> {{'signin_signout' | translate }}
+          <button ion-button clear (click)="signout()"> {{'signin_signout ' | translate }}
   </button>
         </ion-buttons>
       </ion-toolbar>

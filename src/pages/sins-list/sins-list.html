@@ -3,8 +3,8 @@
 </ion-header>
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
-  <div style="height:40%;">
-    <ion-row class="topPart">
+  <div style="height:35%;">
+    <ion-row class="topPart" margin-top>
     </ion-row>
     <ion-row>
       <ion-col class="descriptionPart">
@@ -12,16 +12,13 @@
       </ion-col>
     </ion-row>
   </div>
-  <ion-slides pager style="height:60%;" *ngIf="sins">
+  <ion-slides class="middlePart" pager style="height:60%;" *ngIf="sins">
     <ion-slide *ngFor="let sin of sins; let i=index;" [class.bg0]="getClass(sin, 0)" [class.bg1]="getClass(sin, 1)" [class.bg2]="getClass(sin, 2)"
       [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
       <img style="height:80px;" src="assets/sins/{{i+1}}.png" />
       <div>
         <p>{{sin.title | translate}}</p>
       </div>
-      <!--<div class="topPart1">
-        &nbsp;
-      </div>-->
     </ion-slide>
   </ion-slides>
 
@@ -35,7 +32,7 @@
 <ion-footer>
   <ion-toolbar>
     <button ion-fab style="margin:10px auto">
-      <ion-icon name="add"></ion-icon>
+      <ion-icon class="add" name="add"></ion-icon>
     </button>
   </ion-toolbar>
 </ion-footer>

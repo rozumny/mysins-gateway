@@ -1,0 +1,53 @@
+<ion-header color="primary">
+  <navbar [title]="pageTitle"></navbar>
+</ion-header>
+
+<ion-content text-center scroll="false" class="secondarybg">
+  <div style="height:35%;margin-top:30px;">
+    <ion-row class="topPart">
+    </ion-row>
+  </div>
+  <ion-row>
+    <ion-col class="title" text-uppercase>
+      {{'sins_title' | translate}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="description">
+      {{'sins_total_description' | translate}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="total">
+      {{total}} Kč
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="description">
+      {{'sins_total_description2' | translate}}
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button clear ion-button>
+        <img height="20" src="assets/podium.png" />
+      <!--<ion-icon name="podium"></ion-icon>-->
+    </button>
+    </ion-buttons>
+    <ion-buttons text-center>
+      <button clear ion-button>
+        <img height="10" src="assets/arrowup.png" />
+      <!--<ion-icon name="arrow-up"></ion-icon>-->
+    </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button clear ion-button>
+        <img height="15" src="assets/question.png" />
+      <!--<ion-icon name="help"></ion-icon>-->
+    </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

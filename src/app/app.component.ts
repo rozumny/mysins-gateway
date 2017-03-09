@@ -133,7 +133,7 @@ export class MyApp {
     this.modelLogin = this.formsService.getNewFormModel(loginFormDefinition, true, this.signinData)
     this.modelRegister = this.formsService.getNewFormModel(registerFormDefinition, true, this.signinData)
 
-    this.pages = this.navigation.getMenuNodes();
+    // this.pages = this.navigation.getMenuNodes();
     setTimeout(() => {
       this.navigationActual.setup(this.nav);
 

@@ -3,6 +3,10 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: 'version',
         cz: 'verze'
     },
+    user_not_signed_in: {
+        en: "..",
+        cz: "nepřihlášen"
+    },
     signin_login: {
         en: 'login',
         cz: 'login'
@@ -50,6 +54,18 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     sins_list_title: {
         en: "...",
         cz: 'Jak jsi zhřešil?'
+    },
+    sins_title: {
+        en: "",
+        cz: "Zpovědnice"
+    },
+    sins_total_description: {
+        en: "",
+        cz: "Celkem jste našim charitám již přispěli:"
+    },
+    sins_total_description2: {
+        en: "",
+        cz: "Děkujeme!"
     },
     form_label_field_required: {
         en: "please fill",

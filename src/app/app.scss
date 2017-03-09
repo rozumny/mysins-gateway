@@ -7,3 +7,19 @@
 button {
     box-shadow: none !important;
 }
+.footer:before {
+    background: none;
+}
+.sizeRegular {
+    font-size:13px;
+}
+.lower {
+    text-transform: lowercase;
+}
+.white {
+    color:white;
+}
+.menuToolbar .toolbar-background {
+    color: white;
+    background-color: color($colors, primary);
+}

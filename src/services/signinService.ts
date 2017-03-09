@@ -4,7 +4,7 @@ import { LocalStorageService } from './localStorage';
 import { User } from '../models/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { Store } from '@ngrx/store';
-import { REGISTER, LOGIN } from '../reducers/userstatus';
+import { LOGIN } from '../reducers/userstatus';
 import { SETUSER } from '../reducers/user';
 
 @Injectable()

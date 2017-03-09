@@ -9,6 +9,7 @@ import { StoreModule, combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
+import { HomePage } from '../pages/home/home';
 import { SinsListPage } from '../pages/sins-list/sins-list';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
@@ -56,6 +57,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     SinsListPage,
     ItemDetailsPage,
     ListPage,
@@ -89,6 +91,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
     SinsListPage,
     ItemDetailsPage,
     ListPage,
