@@ -95,168 +95,376 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "...",
         cz: 'Za volantem'
     },
-    sins_question_0: {
+    sins_type_0_question_0: {
         en: "...",
         cz: 'Kolik žen/mužů to bylo'
     },
-    sins_question_0_answer_0: {
+    sins_type_0_question_0_answer_0: {
         en: "...",
         cz: 'ruční práce'
     },
-    sins_question_0_answer_1: {
+    sins_type_0_question_0_answer_1: {
         en: "...",
         cz: '1'
     },
-    sins_question_0_answer_2: {
+    sins_type_0_question_0_answer_2: {
         en: "...",
         cz: '2'
     },
-    sins_question_0_answer_3: {
+    sins_type_0_question_0_answer_3: {
         en: "...",
         cz: '3'
     },
-    sins_question_0_answer_4: {
+    sins_type_0_question_0_answer_4: {
         en: "...",
         cz: 'víc'
     },
-    sins_question_1: {
+    sins_type_0_question_1: {
         en: "...",
         cz: 'Kdo to byl'
     },
-    sins_question_1_answer_0: {
+    sins_type_0_question_1_answer_0: {
         en: "...",
         cz: 'blondýna'
     },
-    sins_question_1_answer_1: {
+    sins_type_0_question_1_answer_1: {
         en: "...",
         cz: 'bruneta'
     },
-    sins_question_1_answer_2: {
+    sins_type_0_question_1_answer_2: {
         en: "...",
         cz: 'zrzka'
     },
-    sins_question_1_answer_3: {
+    sins_type_0_question_1_answer_3: {
         en: "...",
         cz: 'jiný nespecifikovatelný úlet'
     },
-    sins_question_1_answer_4: {
+    sins_type_0_question_1_answer_4: {
         en: "...",
         cz: 'vymazlená kočička'
     },
-    sins_question_1_answer_5: {
+    sins_type_0_question_1_answer_5: {
         en: "...",
         cz: 'průměrné zboží'
     },
-    sins_question_1_answer_6: {
+    sins_type_0_question_1_answer_6: {
         en: "...",
         cz: 'ošklivka (charitativní počin)'
     },
-    sins_question_1_answer_7: {
+    sins_type_0_question_1_answer_7: {
         en: "...",
         cz: 'prostorově výrazná (charitavní počin)'
     },
-    sins_question_1_answer_8: {
+    sins_type_0_question_1_answer_8: {
         en: "...",
         cz: 'cisterna (charitativní počin)'
     },
-    sins_question_1_answer_9: {
+    sins_type_0_question_1_answer_9: {
         en: "...",
         cz: 'chlupatá (charitativní počin)'
     },
-    sins_question_1_answer_10: {
+    sins_type_0_question_1_answer_10: {
         en: "...",
         cz: 'nevoňavá (charitativní počin)'
     },
-    sins_question_1_answer_11: {
+    sins_type_0_question_1_answer_11: {
         en: "...",
         cz: 'handicap (charitativní počin)'
     },
-    sins_question_1_answer_12: {
+    sins_type_0_question_1_answer_12: {
         en: "...",
         cz: '70+ (charitativní počin)'
     },
-    sins_question_2: {
+    sins_type_0_question_2: {
         en: "...",
         cz: 'Co proběhlo'
     },
-    sins_question_2_answer_0: {
+    sins_type_0_question_2_answer_0: {
         en: "...",
         cz: 'Kocour v troubě'
     },
-    sins_question_2_answer_1: {
+    sins_type_0_question_2_answer_1: {
         en: "...",
         cz: 'Lízanda'
     },
-    sins_question_2_answer_2: {
+    sins_type_0_question_2_answer_2: {
         en: "...",
         cz: 'Blow Job'
     },
-    sins_question_2_answer_3: {
+    sins_type_0_question_2_answer_3: {
         en: "...",
         cz: 'Ruční práce'
     },
-    sins_question_2_answer_4: {
+    sins_type_0_question_2_answer_4: {
         en: "...",
         cz: 'Se psem'
     },
-    sins_question_2_answer_5: {
+    sins_type_0_question_2_answer_5: {
         en: "...",
         cz: 'S koněm'
     },
-    sins_question_2_answer_6: {
+    sins_type_0_question_2_answer_6: {
         en: "...",
         cz: 'Bondage'
     },
-    sins_question_2_answer_7: {
+    sins_type_0_question_2_answer_7: {
         en: "...",
         cz: 'Zlatý déšť'
     },
-    sins_question_2_answer_8: {
+    sins_type_0_question_2_answer_8: {
         en: "...",
         cz: 'Ponyplay'
     },
-    sins_question_2_answer_9: {
+    sins_type_0_question_2_answer_9: {
         en: "...",
         cz: 'Fekální radovánky'
     },
-    sins_question_2_answer_10: {
+    sins_type_0_question_2_answer_10: {
         en: "...",
         cz: 'Mumifikace'
     },
-    sins_question_2_answer_11: {
+    sins_type_0_question_2_answer_11: {
         en: "...",
         cz: 'Římská sprcha'
     },
-    sins_question_2_answer_12: {
+    sins_type_0_question_2_answer_12: {
         en: "...",
         cz: 'Anilingus'
     },
-    sins_question_2_answer_13: {
+    sins_type_0_question_2_answer_13: {
         en: "...",
         cz: 'Teabagging'
     },
-    sins_question_2_answer_14: {
+    sins_type_0_question_2_answer_14: {
         en: "...",
         cz: 'Tribandismus'
     },
-    sins_question_2_answer_15: {
+    sins_type_0_question_2_answer_15: {
         en: "...",
         cz: 'Dirty Sanchez'
     },
-    sins_question_3: {
+    sins_type_0_question_3: {
         en: "...",
         cz: 'Máš nějaký vztah?'
     },
-    sins_question_3_answer_0: {
+    sins_type_0_question_3_answer_0: {
         en: "...",
         cz: 'Stav: nezadaný/á nebo proběhlo s partnerem/partnerkou'
     },
-    sins_question_3_answer_1: {
+    sins_type_0_question_3_answer_1: {
         en: "...",
         cz: 'Stav: zadaný/á'
     },
-    sins_question_3_answer_2: {
+    sins_type_0_question_3_answer_2: {
         en: "...",
         cz: 'Stav: ženatý/á'
-    }
+    },
+    sins_type_1_question_0: {
+        en: "...",
+        cz: 'Co to bylo?'
+    },
+    sins_type_1_question_0_answer_0: {
+        en: "...",
+        cz: 'Pivo'
+    },
+    sins_type_1_question_0_answer_1: {
+        en: "...",
+        cz: 'Víno'
+    },
+    sins_type_1_question_0_answer_2: {
+        en: "...",
+        cz: 'Tvrdej (whiskey, gin, rum, vodka, pálenky, tequila, grappa…)'
+    },
+    sins_type_1_question_0_answer_3: {
+        en: "...",
+        cz: 'Cocktail'
+    },
+    sins_type_1_question_0_answer_4: {
+        en: "...",
+        cz: 'Ultra tvrdej (nad 45%)'
+    },
+    sins_type_1_question_0_answer_5: {
+        en: "...",
+        cz: 'Bizár (Alpa, okena, čistý líh)'
+    },
+    sins_type_1_question_1: {
+        en: "...",
+        cz: 'Kolik toho bylo?'
+    },
+    sins_type_1_question_1_answer_0: {
+        en: "...",
+        cz: 'Panáček / sklenička'
+    },
+    sins_type_1_question_1_answer_1: {
+        en: "...",
+        cz: 'Víc panáčků / skleniček'
+    },
+    sins_type_1_question_1_answer_2: {
+        en: "...",
+        cz: 'Ještě víc panáčků / skleniček'
+    },
+    sins_type_1_question_1_answer_3: {
+        en: "...",
+        cz: 'Už si nepamatuji...'
+    },
+    sins_type_1_question_2: {
+        en: "...",
+        cz: 'Kde jsi skončil?'
+    },
+    sins_type_1_question_2_answer_0: {
+        en: "...",
+        cz: 'Doma'
+    },
+    sins_type_1_question_2_answer_1: {
+        en: "...",
+        cz: 'U někoho doma'
+    },
+    sins_type_1_question_2_answer_2: {
+        en: "...",
+        cz: 'Po stolem'
+    },
+    sins_type_1_question_2_answer_3: {
+        en: "...",
+        cz: 'Na záchytce'
+    },
+    sins_type_1_question_3: {
+        en: "...",
+        cz: 'Kde se to odehrálo?'
+    },
+    sins_type_1_question_3_answer_0: {
+        en: "...",
+        cz: 'Rusko, Polsko, Ukrajina'
+    },
+    sins_type_1_question_3_answer_1: {
+        en: "...",
+        cz: 'Ostatní země'
+    },
+    sins_type_2_question_0: {
+        en: "...",
+        cz: 'Co to bylo?'
+    },
+    sins_type_2_question_0_answer_0: {
+        en: "...",
+        cz: 'Dětské drogy: tráva, hašiš, MDMA, extáze, kokain, Mňaumňau, GHB'
+    },
+    sins_type_2_question_0_answer_1: {
+        en: "...",
+        cz: 'Halušky: LSD, houbičky, Mezkalin, Ayahuasca, PCP, Peyotl, DMT, Šalvěj divotvorná, kaktus San Pedro, Havajská lesní růže, Durman, ketamin, Mochomůrka červená, oxid dusný, Rulík zlomocný, Mandragora, Blín černý'
+    },
+    sins_type_2_question_0_answer_2: {
+        en: "...",
+        cz: 'Tvrdý drogy: Heroin, Pervitin, Morfium, Opium, Brown, kodein, thebain, papaverin, noskapin, Speed, Crack, Perník'
+    },
+    sins_type_2_question_1: {
+        en: "...",
+        cz: 'Kde sis dal?'
+    },
+    sins_type_2_question_1_answer_0: {
+        en: "...",
+        cz: 'Amsterdam, Jižní Amerika'
+    },
+    sins_type_2_question_1_answer_1: {
+        en: "...",
+        cz: 'Ostatní země'
+    },
+    sins_type_3_question_0: {
+        en: "...",
+        cz: 'Takže, jak to bylo?'
+    },
+    sins_type_3_question_0_answer_0: {
+        en: "...",
+        cz: 'Už jsem neměl jsem hlad a stejně jsem se přežral jako prase'
+    },
+    sins_type_3_question_0_answer_1: {
+        en: "...",
+        cz: 'Mám dietu a stejně sem se přežral jako prase'
+    },
+    sins_type_3_question_0_answer_2: {
+        en: "...",
+        cz: 'Moje děti nemají co do huby a já se stejně přežral jako prase'
+    },
+    sins_type_4_question_0: {
+        en: "...",
+        cz: 'O čem jsi lhal?'
+    },
+    sins_type_4_question_0_answer_0: {
+        en: "...",
+        cz: 'Lhal jsem o nevěře'
+    },
+    sins_type_4_question_0_answer_1: {
+        en: "...",
+        cz: 'Lhal jsem jinak'
+    },
+    sins_type_4_question_0_answer_2: {
+        en: "...",
+        cz: 'Lhal jsem pro svůj kariérní/finanční prospěch'
+    },
+    sins_type_4_question_0_answer_3: {
+        en: "...",
+        cz: 'Lhal jsem pro zábavu'
+    },
+    sins_type_4_question_1: {
+        en: "...",
+        cz: ''
+    },
+    sins_type_4_question_1_answer_0: {
+        en: "...",
+        cz: 'žena'
+    },
+    sins_type_4_question_1_answer_1: {
+        en: "...",
+        cz: 'muž'
+    },
+    sins_type_5_question_0: {
+        en: "...",
+        cz: 'Co jsi vyvedl/a?'
+    },
+    sins_type_5_question_0_answer_0: {
+        en: "...",
+        cz: 'Rychlost'
+    },
+    sins_type_5_question_0_answer_1: {
+        en: "...",
+        cz: 'Červená není zeď'
+    },
+    sins_type_5_question_0_answer_2: {
+        en: "...",
+        cz: 'Tlustá čára neni zeď'
+    },
+    sins_type_5_question_0_answer_3: {
+        en: "...",
+        cz: 'Dvojitá čára taky neni zeď'
+    },
+    sins_type_5_question_0_answer_4: {
+        en: "...",
+        cz: 'Ostatní jsou jedničky'
+    },
+    sins_type_5_question_0_answer_5: {
+        en: "...",
+        cz: 'Parkování na invalidech'
+    },
+    sins_type_5_question_0_answer_6: {
+        en: "...",
+        cz: 'Alkohol'
+    },
+    sins_type_5_question_0_answer_7: {
+        en: "...",
+        cz: 'Drogy'
+    },
+    sins_type_5_question_1: {
+        en: "...",
+        cz: 'Kolik jsi toho měl?'
+    },
+    sins_type_5_question_1_answer_0: {
+        en: "...",
+        cz: 'Jen ochutnávka'
+    },
+    sins_type_5_question_1_answer_1: {
+        en: "...",
+        cz: 'Trochu se to rozjelo'
+    },
+    sins_type_5_question_1_answer_2: {
+        en: "...",
+        cz: 'Vůbec si nepamatuji'
+    },
 };
