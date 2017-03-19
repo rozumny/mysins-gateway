@@ -1,9 +1,9 @@
-<ion-header color="primary">
+<!--<ion-header color="primary">
   <navbar [title]="pageTitle"></navbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
-  <div style="height:35%;">
+  <div *ngIf="!sin" style="height:35%;">
     <ion-row class="topPart" margin-top>
     </ion-row>
     <ion-row>
@@ -12,7 +12,7 @@
       </ion-col>
     </ion-row>
   </div>
-  <ion-slides class="middlePart" pager style="height:60%;" *ngIf="sins">
+  <ion-slides [style.height]="getSlidesHeight()" *ngIf="sins" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let sin of sins; let i=index;" [class.bg0]="getClass(sin, 0)" [class.bg1]="getClass(sin, 1)" [class.bg2]="getClass(sin, 2)"
       [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
       <img style="height:80px;" src="assets/sins/{{i+1}}.png" />
@@ -21,6 +21,18 @@
       </div>
     </ion-slide>
   </ion-slides>
+  <br/>
+  <ion-row *ngIf="sin" class="descriptionPart">
+    <ion-col>
+      {{'sin_detail' | translate}}
+    </ion-col>
+  </ion-row>
+  <br/>
+  <div *ngIf="sin">
+    <div *ngFor="let question of questions; let i=index;" class="question">
+      {{ question.title | translate }}
+    </div>
+  </div>
 
   <!--<ion-row class='bottomPart'>
     <button ion-fab style="margin:10px auto">
@@ -29,9 +41,9 @@
   </ion-row>-->
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="!sin">
   <ion-toolbar>
-    <button ion-fab style="margin:10px auto">
+    <button ion-fab style="margin:10px auto" (click)="selectSin()">
       <ion-icon class="add" name="add"></ion-icon>
     </button>
   </ion-toolbar>

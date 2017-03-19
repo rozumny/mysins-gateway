@@ -1,7 +1,7 @@
 export class Sin {
     public key: string;
     public title: string;
-    public question: { [id: string]: Question };
+    public questions: { [id: string]: Question };
     constructor() {
     }
 }

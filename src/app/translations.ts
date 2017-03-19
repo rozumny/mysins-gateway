@@ -51,6 +51,10 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "Registration successful.",
         cz: 'Registrace proběhla úspěšně.'
     },
+    sin_detail: {
+        en: "",
+        cz: "Tak jak to bylo?"
+    },
     sins_list_title: {
         en: "...",
         cz: 'Jak jsi zhřešil?'

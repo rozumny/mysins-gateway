@@ -27,6 +27,18 @@ sins-list {
     .add:before {
         font-weight: bold;
     }
+    .question {
+        width: 100%;
+        text-transform: lowercase;
+        font-size:16px;
+        margin-top:1px;
+        color:color($colors, darktext);
+        background-color: color($colors, primary);
+        padding: 15px;
+    }
+    .question:first-letter {
+        text-transform: uppercase;
+    }
     // .bottomPart {
     //     height: 50px;
     // }
