@@ -28,8 +28,6 @@ import { RadioControl } from '../components/forms/controls/radio/radio';
 import { MultiSelectControl } from '../components/forms/controls/multiselectcontrol/multiselectcontrol';
 import { UserInfo } from '../components/userInfo/userInfo';
 
-import { Navigation } from '../services/navigation';
-import { NavigationActual } from '../services/navigationActual';
 import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { Utils } from '../services/utilsService';
@@ -38,7 +36,6 @@ import { LocalStorageService } from '../services/localStorage';
 import { ModalService } from '../services/modalService';
 import { SinsService } from '../services/sinsService';
 
-import { nav } from '../reducers/navigation';
 import { userStatus } from '../reducers/userstatus';
 import { user } from '../reducers/user';
 
@@ -61,7 +58,6 @@ export class mySinsTranslationLoader implements TranslateLoader {
     SinsListPage,
     ItemDetailsPage,
     ListPage,
-
     Navbar,
     NewForms,
     Text,
@@ -77,13 +73,16 @@ export class mySinsTranslationLoader implements TranslateLoader {
     UserInfo
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      backButtonIcon: 'ios-arrow-back-outline'
+    }),
     TranslateModule.forRoot({ provide: TranslateLoader, useClass: mySinsTranslationLoader }),
     StoreModule.provideStore(
       compose(
-        localStorageSync(['nav', 'userStatus', 'user'], true),
+        localStorageSync(['userStatus', 'user'], true),
         combineReducers
-      )({ nav, userStatus, user })),
+      )({ userStatus, user })),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     })
@@ -95,7 +94,6 @@ export class mySinsTranslationLoader implements TranslateLoader {
     SinsListPage,
     ItemDetailsPage,
     ListPage,
-
     Navbar,
     NewForms,
     Text,
@@ -110,15 +108,15 @@ export class mySinsTranslationLoader implements TranslateLoader {
     Password,
     UserInfo
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler },
-    Navigation,
-    NavigationActual,
+  providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     FormService,
     FormsService,
     Utils,
     ModalService,
     SigninService,
     SinsService,
-    LocalStorageService]
+    LocalStorageService
+  ]
 })
 export class AppModule { }

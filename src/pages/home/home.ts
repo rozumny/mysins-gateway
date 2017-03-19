@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { SinsService } from '../../services/sinsService';
 // import { Utils } from '../../services/utilsService';
-// import { Sin } from '../../models/sin';
+import { SinsListPage } from '../../pages/sins-list/sins-list';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'home',
@@ -12,8 +13,13 @@ export class HomePage {
   public total: number = 1222;
 
   constructor(
+    private navigation: NavController,
     private sinsService: SinsService
   ) {
 
+  }
+
+  openList() {
+    this.navigation.push(SinsListPage);
   }
 }

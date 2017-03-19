@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PopoverController, NavController, Platform, MenuController } from 'ionic-angular';
-import { Navigation } from '../../services/navigation';
+import { NavController, Platform, MenuController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 
 @Component({
@@ -8,7 +7,7 @@ import { Events } from 'ionic-angular';
     templateUrl: 'navbar.html'
 })
 export class Navbar {
-    @Input() displayRightMenuButton: boolean;
+    @Input() displayRightMenuButton: boolean = true;
     @Input() title: string;
     isAndroid: boolean;
     cordova: any;
@@ -18,26 +17,15 @@ export class Navbar {
         private nav: NavController,
         private platform: Platform,
         private menu: MenuController,
-        private events: Events,
-        public popoverCtrl: PopoverController,
-        private navigation: Navigation) {
-        this.displayRightMenuButton = true;
+        private events: Events) {
         this.isAndroid = this.platform.is('android');
         this.cordova = (<any>window).cordova;
-        this.hasBackButton = this.navigation.getNavigationHistory().length > 1;
     }
 
     ngOnInit() {
-        if (!this.title) {
-            this.title = this.navigation.getCurrentNode().title;
-        }
     }
 
     openMenu() {
         this.menu.open();
-    }
-
-    pop() {
-        this.navigation.pop();
     }
 }

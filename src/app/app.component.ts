@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { NavigationActual } from '../services/navigationActual';
-import { Navigation } from '../services/navigation';
 import { LocalStorageService } from '../services/localStorage';
 import { FormsService } from '../services/formsService';
 import { ModalService } from '../services/modalService';
@@ -19,12 +17,14 @@ import { REGISTER, LOGIN } from '../reducers/userstatus';
 import { User } from '../models/user';
 import { UserStatus } from '../models/userStatus';
 import { Sin } from '../models/sin';
+import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  rootPage: any = HomePage;
 
   // private pages: Array<{ title: string, component: any }>;
   private modelLogin: Promise<Form>;
@@ -44,8 +44,6 @@ export class MyApp {
     private translate: TranslateService,
     public menu: MenuController,
     private events: Events,
-    private navigationActual: NavigationActual,
-    private navigation: Navigation,
     private formsService: FormsService,
     private modalService: ModalService,
     private sinsService: SinsService,
@@ -86,6 +84,7 @@ export class MyApp {
     userLang = 'cz'; //TODO: remove for production
     translate.setDefaultLang(userLang);
     translate.use(userLang);
+
 
     var loginFormDefinition = <FormDefinition>{
       fields: [
@@ -132,26 +131,6 @@ export class MyApp {
 
     this.modelLogin = this.formsService.getNewFormModel(loginFormDefinition, true, this.signinData)
     this.modelRegister = this.formsService.getNewFormModel(registerFormDefinition, true, this.signinData)
-
-    // this.pages = this.navigation.getMenuNodes();
-    setTimeout(() => {
-      this.navigationActual.setup(this.nav);
-
-      this.localStorageService.getObject('nav', true).then((nodeInLocalStorage) => {
-        if (!nodeInLocalStorage || nodeInLocalStorage.length === 0) {
-          this.navigation.setRootToNode(this.navigation.nodes.find(x => x.id === 'home'));
-        } else {
-          var n = this.navigation.getCurrentNode();
-          if (n !== undefined && n !== this.navigation.nodes[0]) {
-            //  this.signinService.isSignedIn().then((isSignedIn) => {
-            //     if (isSignedIn) {
-            this.navigation.initNode(n);
-            //     }
-            //  });
-          }
-        }
-      });
-    });
   }
 
   initializeApp() {

@@ -1,12 +1,5 @@
-<ion-navbar hideBackButton align-title="center">
-  <ion-buttons left>
-    <button class="no-shadow button button-default button-icon-only bar-button bar-button-default bar-button-icon-only" *ngIf="hasBackButton"
-      (click)="pop()">
-      <ion-icon name="arrow-back"></ion-icon>
-    </button>
-  </ion-buttons>
-
-  <ion-buttons end *ngIf="displayRightMenuButton">
+<ion-navbar align-title="center">
+  <ion-buttons end>
     <userinfo></userinfo>
   </ion-buttons>
 </ion-navbar>
