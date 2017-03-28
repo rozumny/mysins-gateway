@@ -13,6 +13,7 @@ export class Question {
 }
 
 export class Answer {
+    public type: string;
     public title: string;
     public value: string;
 }

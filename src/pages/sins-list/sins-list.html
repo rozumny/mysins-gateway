@@ -1,6 +1,6 @@
-<!--<ion-header color="primary">
+<ion-header color="primary">
   <navbar [title]="pageTitle"></navbar>
-</ion-header>-->
+</ion-header>
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
   <div *ngIf="!sin" style="height:35%;">
@@ -17,20 +17,20 @@
       [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
       <img style="height:80px;" src="assets/sins/{{i+1}}.png" />
       <div>
-        <p>{{sin.title | translate}}</p>
+        <p [class.hide]="getHideClass()">{{sin.title | translate}}</p>
       </div>
     </ion-slide>
   </ion-slides>
   <br/>
   <ion-row *ngIf="sin" class="descriptionPart">
     <ion-col>
-      {{'sin_detail' | translate}}
+      {{questions[questionIndex].title | translate}}
     </ion-col>
   </ion-row>
   <br/>
   <div *ngIf="sin">
-    <div *ngFor="let question of questions; let i=index;" class="question">
-      {{ question.title | translate }}
+    <div *ngFor="let answer of objectToArrayStoreKeys(questions[questionIndex].answers); let i=index;" class="question" (click)="nextQuestion(answer)">
+      {{ answer.title | translate }}
     </div>
   </div>
 
