@@ -17,15 +17,15 @@ import { REGISTER, LOGIN } from '../reducers/userstatus';
 import { User } from '../models/user';
 import { UserStatus } from '../models/userStatus';
 import { Sin } from '../models/sin';
-// import { HomePage } from '../pages/home/home';
-import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
+import { HomePage } from '../pages/home/home';
+// import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = SinAbsolutionPage;
+  rootPage: any = HomePage;
 
   // private pages: Array<{ title: string, component: any }>;
   private modelLogin: Promise<Form>;
