@@ -3,6 +3,8 @@ import { SinsService } from '../../services/sinsService';
 import { Utils } from '../../services/utilsService';
 import { Sin, Question, Answer } from '../../models/sin';
 import { Slides, NavController, Content } from 'ionic-angular';
+import { SinAbsolutionPage } from '../../pages/sin-absolution/sin-absolution';
+
 
 @Component({
   selector: 'sins-list',
@@ -21,6 +23,7 @@ export class SinsListPage {
 
   constructor(
     private sinsService: SinsService,
+    private navigation: NavController,
     public utils: Utils
   ) {
     this.sinsService.getAll().then(sins => {
@@ -36,11 +39,18 @@ export class SinsListPage {
       if (this.questionIndex < this.questions.length - 1) {
         this.questionIndex++;
       } else {
-        alert(this.calculateResult(this.answers));
+        this.navigate();
       }
     } else {
-      alert(this.calculateResult(this.answers));
+      this.navigate();
     }
+  }
+
+  navigate() {
+    this.navigation.push(SinAbsolutionPage, {
+      total: this.calculateResult(this.answers),
+      answers: this.answers
+    });
   }
 
   calculateResult(answers) {

@@ -471,4 +471,24 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "...",
         cz: 'Vůbec si nepamatuji'
     },
+    sin_absolution_button: {
+        en: "",
+        cz: "Rozhřešení"
+    },
+    sin_absolution_description: {
+        en: "",
+        cz: "I Ty..."
+    },
+    sin_absolution_verse: {
+        en: "",
+        cz: "Tedy Ježíš řekl: <br/>Otče, odpusť jim, <br/> neboť nevědí, co činí.<br/>A rozdělivše roucho jeho,<br/>metali o ně los."
+    },
+    sin_absolution_waiting: {
+        en: "",
+        cz: "CHVILKU USTRPENÍ, POČÍTÁM..."
+    },
+    charity_list_title: {
+        en: "",
+        cz: "VYBER SI CHARITU NEBO PROJEKT, KTERÝM SE Z HŘÍCHU VYKOUPÍŠ"
+    }
 };

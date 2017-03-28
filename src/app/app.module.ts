@@ -11,6 +11,8 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { HomePage } from '../pages/home/home';
 import { SinsListPage } from '../pages/sins-list/sins-list';
+import { CharityListPage } from '../pages/charity-list/charity-list';
+import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
@@ -35,6 +37,7 @@ import { SigninService } from '../services/signinService';
 import { LocalStorageService } from '../services/localStorage';
 import { ModalService } from '../services/modalService';
 import { SinsService } from '../services/sinsService';
+import { CharityService } from '../services/charityService';
 
 import { userStatus } from '../reducers/userstatus';
 import { user } from '../reducers/user';
@@ -56,6 +59,8 @@ export class mySinsTranslationLoader implements TranslateLoader {
     MyApp,
     HomePage,
     SinsListPage,
+    CharityListPage,
+    SinAbsolutionPage,
     ItemDetailsPage,
     ListPage,
     Navbar,
@@ -92,6 +97,8 @@ export class mySinsTranslationLoader implements TranslateLoader {
     MyApp,
     HomePage,
     SinsListPage,
+    CharityListPage,
+    SinAbsolutionPage,
     ItemDetailsPage,
     ListPage,
     Navbar,
@@ -116,6 +123,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     ModalService,
     SigninService,
     SinsService,
+    CharityService,
     LocalStorageService
   ]
 })

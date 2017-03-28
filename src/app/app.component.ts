@@ -17,14 +17,15 @@ import { REGISTER, LOGIN } from '../reducers/userstatus';
 import { User } from '../models/user';
 import { UserStatus } from '../models/userStatus';
 import { Sin } from '../models/sin';
-import { HomePage } from '../pages/home/home';
+// import { HomePage } from '../pages/home/home';
+import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = HomePage;
+  rootPage: any = SinAbsolutionPage;
 
   // private pages: Array<{ title: string, component: any }>;
   private modelLogin: Promise<Form>;
@@ -84,7 +85,7 @@ export class MyApp {
     userLang = 'cz'; //TODO: remove for production
     translate.setDefaultLang(userLang);
     translate.use(userLang);
-
+    this.localStorageService.set('lang', userLang);
 
     var loginFormDefinition = <FormDefinition>{
       fields: [

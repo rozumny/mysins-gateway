@@ -1,0 +1,35 @@
+<ion-header color="primary">
+  <navbar [title]="pageTitle"></navbar>
+</ion-header>
+
+<ion-content text-center scroll="false" text-uppercase class="secondarybg">
+  <div style="height:35%;">
+    <ion-row class="topPart" margin-top>
+    </ion-row>
+    <br/>
+    <ion-row margin-top>
+      <ion-col *ngIf='!confirmed' class="bold headerPart">
+        {{'sin_absolution_description' | translate}}
+      </ion-col>
+      <ion-col *ngIf='confirmed' class="bold headerPart" text-uppercase>
+        {{'sin_absolution_waiting' | translate}}
+      </ion-col>
+    </ion-row>
+  </div>
+  <br/>
+  <br/>
+  <ion-row *ngIf="confirmed" margin-top class="descriptionPart italic">
+    <ion-col>
+      <div [innerHTML]="'sin_absolution_verse' | translate"></div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer text-center>
+  <ion-toolbar>
+    <button *ngIf="!confirmed" class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px auto"
+      (click)="absolution()">
+      {{ 'sin_absolution_button' | translate }}
+    </button>
+  </ion-toolbar>
+</ion-footer>
