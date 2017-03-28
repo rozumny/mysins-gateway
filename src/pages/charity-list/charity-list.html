@@ -3,18 +3,16 @@
 </ion-header>
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
-  <div style="height:35%;">
-    <ion-row class="topPart" margin-top>
-    </ion-row>
-    <ion-row padding>
-      <ion-col class="headerPart">
-        {{'charity_list_title' | translate}}
-      </ion-col>
-    </ion-row>
-  </div>
-  <br/>
-  <ion-slides margin-top [style.height]="'35%'" *ngIf="charities" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
-    <ion-slide padding class="slidePart" [style.background-image]="'url(../assets/charity/1.jpg)'" *ngFor="let charity of charities; let i=index;">
+  <ion-row style="height:25%" class="topPart" margin-top>
+  </ion-row>
+  <ion-row padding>
+    <ion-col class="headerPart">
+      {{'charity_list_title' | translate}}
+    </ion-col>
+  </ion-row>
+  <ion-slides [style.height]="'35%'" *ngIf="charities" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
+    <ion-slide (click)="selectCharity()" padding class="slidePart" [style.background-image]="'url(../assets/charity/1.jpg)'"
+      *ngFor="let charity of charities; let i=index;">
       <div>
         <p color='primary'>{{charity.title[language]}}</p>
       </div>
@@ -23,7 +21,7 @@
       </div>
     </ion-slide>
   </ion-slides>
-  <span class="category" *ngFor="let category of categories; let i=index;">
+  <span class="category" *ngFor="let category of categories; let i=index;" (click)="selectCategory(category)">
     {{category.title[language]}}
   </span>
 </ion-content>

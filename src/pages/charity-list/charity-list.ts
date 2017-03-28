@@ -5,7 +5,7 @@ import { Utils } from '../../services/utilsService';
 import { CharityCategory, Charity } from '../../models/charity';
 import { Slides, Content } from 'ionic-angular';
 import { LocalStorageService } from '../../services/localStorage';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'charity-list',
@@ -35,9 +35,15 @@ export class CharityListPage {
     });
   }
 
-
   selectCharity() {
+    alert(this.charities[this.charityIndex]);
+  }
 
+  selectCategory(category: CharityCategory) {
+    this.charityService.getCharitiesByType(category.key).then(x => {
+      this.charities = x;
+      this.charityIndex = 0;
+    });
   }
 
   slideChanged() {

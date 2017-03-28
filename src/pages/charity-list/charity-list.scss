@@ -17,6 +17,7 @@ charity-list {
     }
     .headerPart {
         font-size: 18px;
+        padding: 10px 10px;
         font-weight: bold;
     }
     .descriptionPart {
@@ -41,7 +42,7 @@ charity-list {
     }
     .category {
         font-weight: bold;
-        overflow:hidden; 
+        // overflow:hidden; 
         white-space:nowrap; 
         text-overflow: ellipsis;
         margin: 0;

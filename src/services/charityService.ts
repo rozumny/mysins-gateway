@@ -39,7 +39,7 @@ export class CharityService {
         this.charities = {
             0: {
                 key: "0",
-                type: 0,
+                type: "0",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -56,7 +56,7 @@ export class CharityService {
             },
             1: {
                 key: "1",
-                type: 0,
+                type: "0",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -73,7 +73,7 @@ export class CharityService {
             },
             2: {
                 key: "2",
-                type: 0,
+                type: "0",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -90,7 +90,7 @@ export class CharityService {
             },
             3: {
                 key: "3",
-                type: 1,
+                type: "1",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -107,7 +107,7 @@ export class CharityService {
             },
             4: {
                 key: "4",
-                type: 1,
+                type: "1",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -124,7 +124,7 @@ export class CharityService {
             },
             5: {
                 key: "5",
-                type: 2,
+                type: "2",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -146,8 +146,11 @@ export class CharityService {
         return Promise.resolve(this.charities[id]);
     }
 
-    getCharitiesByType(type: string): Promise<Charity[]> {
-        return Promise.resolve(Utils.objectToArrayStoreKeys(this.charities).filter(x => x.type == type));
+    getCharitiesByType(categoryType: string): Promise<Charity[]> {
+        var chars = Utils.objectToArrayStoreKeys(this.charities).filter(x => {
+            return x.type == categoryType;
+        });
+        return Promise.resolve(chars);
     }
 
     getCharities(): Promise<Charity[]> {
