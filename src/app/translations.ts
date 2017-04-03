@@ -490,5 +490,9 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     charity_list_title: {
         en: "",
         cz: "VYBER SI CHARITU NEBO PROJEKT, KTERÝM SE Z HŘÍCHU VYKOUPÍŠ"
+    },
+    currency: {
+        en: "",
+        cz: "Kč"
     }
 };

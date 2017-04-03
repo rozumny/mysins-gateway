@@ -3,10 +3,12 @@ sins-list {
     {
         width: 12px;
         height: 12px;
-        background-color: #fff !important;
+        opacity: 0.9;
+        background-color: color($colors, secondary) !important;
     }
     .swiper-pagination-bullet-active
     {
+        opacity: 1;
         background-color: color($colors, primary) !important;
     }
     .topPart {

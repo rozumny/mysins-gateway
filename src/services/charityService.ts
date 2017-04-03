@@ -39,6 +39,8 @@ export class CharityService {
         this.charities = {
             0: {
                 key: "0",
+                progress: "37",
+                total: "22000",
                 type: "0",
                 img: "1.jpg",
                 title: {
@@ -57,6 +59,8 @@ export class CharityService {
             1: {
                 key: "1",
                 type: "0",
+                progress: "74",
+                total: "22000",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -74,6 +78,8 @@ export class CharityService {
             2: {
                 key: "2",
                 type: "0",
+                progress: "52",
+                total: "22000",
                 img: "1.jpg",
                 title: {
                     en: "",
@@ -92,6 +98,8 @@ export class CharityService {
                 key: "3",
                 type: "1",
                 img: "1.jpg",
+                progress: "22",
+                total: "22000",
                 title: {
                     en: "",
                     cz: "Invalidní vozík pro Kačku"
@@ -109,6 +117,8 @@ export class CharityService {
                 key: "4",
                 type: "1",
                 img: "1.jpg",
+                progress: "22",
+                total: "22000",
                 title: {
                     en: "",
                     cz: "Invalidní vozík pro Kačku"
@@ -126,6 +136,8 @@ export class CharityService {
                 key: "5",
                 type: "2",
                 img: "1.jpg",
+                progress: "22",
+                total: "22000",
                 title: {
                     en: "",
                     cz: "Invalidní vozík pro Kačku"
