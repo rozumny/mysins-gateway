@@ -22,6 +22,12 @@ button {
 .white {
     color:white;
 }
+.primary {
+    color: color($colors, primary);
+}
+.bold {
+    font-weight: bold;
+}
 .menuToolbar {
     button {
         font-size: 13px;

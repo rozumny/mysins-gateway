@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { CharityService } from '../../services/charityService';
 import { Utils } from '../../services/utilsService';
-// import { Charity, CharityCategory } from '../../models/charity';
+import { SinPricingPage } from '../../pages/sin-pricing/sin-pricing';
 import { CharityCategory, Charity } from '../../models/charity';
 import { Slides, Content } from 'ionic-angular';
 import { LocalStorageService } from '../../services/localStorage';
-import { NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'charity-list',
@@ -17,11 +17,12 @@ export class CharityListPage {
   public categories: CharityCategory[];
   public charities: Charity[];
   public language: string;
-  public charityIndex: number;
+  public charityIndex: number = 0;
 
   constructor(
     private localStorageService: LocalStorageService,
     public navParams: NavParams,
+    private navigation: NavController,
     private charityService: CharityService
   ) {
     this.localStorageService.get('lang').then(lang => {
@@ -36,7 +37,7 @@ export class CharityListPage {
   }
 
   selectCharity() {
-    alert(this.charities[this.charityIndex]);
+    this.navigation.push(SinPricingPage, { total: this.navParams.data.total, charity: this.charities[this.charityIndex] });
   }
 
   selectCategory(category: CharityCategory) {

@@ -494,5 +494,21 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     currency: {
         en: "",
         cz: "Kč"
+    },
+    sin_pricing_title: {
+        en: "",
+        cz: "To jest velmi moudré rozhodnutí"
+    },
+    sin_pricing_button_1: {
+        en: "",
+        cz: "Přispět"
+    },
+    sin_pricing_button_2: {
+        en: "",
+        cz: "a odpustit"
+    },
+    sin_pricing_suggestion: {
+        en: "",
+        cz: "Jakou částkou chceš projekt podpořit?"
     }
 };

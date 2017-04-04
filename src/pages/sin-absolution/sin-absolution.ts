@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-// import { SinsService } from '../../services/sinsService';
-// import { Utils } from '../../services/utilsService';
-// import { Sin, Question } from '../../models/sin';
+import { Component, ViewChild } from '@angular/core';
 import { CharityListPage } from '../../pages/charity-list/charity-list';
 import { NavController, NavParams } from 'ionic-angular';
+import { Content } from 'ionic-angular';
 
 @Component({
   selector: 'sin-absolution',
   templateUrl: 'sin-absolution.html'
 })
 export class SinAbsolutionPage {
+  @ViewChild(Content) content: Content;
 
   public confirmed: boolean = false;
 
@@ -21,8 +20,9 @@ export class SinAbsolutionPage {
 
   absolution() {
     this.confirmed = true;
+    this.content.resize();
     setTimeout(() => {
       this.navigation.push(CharityListPage, this.navParams.data);
-    }, 2000);
+    }, 4000);
   }
 }

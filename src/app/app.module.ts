@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { SinsListPage } from '../pages/sins-list/sins-list';
 import { CharityListPage } from '../pages/charity-list/charity-list';
 import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
+import { SinPricingPage } from '../pages/sin-pricing/sin-pricing';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 
@@ -61,6 +62,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
+    SinPricingPage,
     ItemDetailsPage,
     ListPage,
     Navbar,
@@ -99,6 +101,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
+    SinPricingPage,
     ItemDetailsPage,
     ListPage,
     Navbar,
