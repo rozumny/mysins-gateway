@@ -34,7 +34,8 @@
   <ion-toolbar>
     <ion-row>
       <ion-col class="totalButtons">
-        <span class="bold">{{total}} {{'currency' | translate}}</span>
+        <input type="number" #totalInput class="total" [(ngModel)]="total" />
+        <span class="bold" (click)="openTotal()">{{ total }} {{'currency' | translate}}</span>
         <button mini ion-fab (click)="remove()">
           <ion-icon class="add" name="remove"></ion-icon>
         </button>

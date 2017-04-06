@@ -1,4 +1,4 @@
-sin-pricing {
+sin-finish {
     font-size: 12px;
 
     .swiper-pagination-bullet 
@@ -32,8 +32,7 @@ sin-pricing {
     }
     .totalButtons button {
         font-size: 18px;
-        margin-right:0 !important;
-        margin-left:0 !important;
+        margin-right:0;
         display:inline-block;
     }
 
@@ -44,5 +43,10 @@ sin-pricing {
     .totalButtons {
         font-size: 18px;
         margin:0;
+    }
+    .share {
+        font-weight: bold;
+        color: color($colors, primary);
+        border: 1px solid color($colors, primary);
     }
 }

@@ -61,7 +61,7 @@ export class SinsListPage {
       base *= x.value;
     });
 
-    return base;
+    return Math.round(base);
   }
 
   getClass(sin: Sin, index: number) {

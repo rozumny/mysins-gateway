@@ -1,0 +1,47 @@
+<ion-header color="primary">
+  <navbar [title]="pageTitle"></navbar>
+</ion-header>
+
+<ion-content text-center scroll="false" class="secondarybg">
+  <div style="height:35%;">
+    <ion-row class="topPart" margin-top>
+    </ion-row>
+  </div>
+  <ion-row>
+    <ion-col class="bold headerPart" text-uppercase>
+      {{'sin_finish_title' | translate}}
+    </ion-col>
+  </ion-row>
+  <br/>
+  <ion-row>
+    <ion-col>
+      {{ 'sin_finish_suggestion' | translate }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button class="share" mini ion-button round color="secondary" (click)="share()">
+        {{ 'sin_finish_share' | translate }}
+      </button>
+    </ion-col>
+  </ion-row>
+  <br/>
+</ion-content>
+
+<ion-footer text-center>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col width-25>
+        <button ion-fab style="margin:10px auto" (click)="goSinList()">
+      <ion-icon class="add" name="add"></ion-icon>
+    </button>
+      </ion-col>
+      <ion-col>
+        <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px 0; width:100%;"
+          (click)="goHome()">
+      {{ 'sin_finish_home_button' | translate }}
+    </button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

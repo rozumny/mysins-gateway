@@ -510,5 +510,25 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     sin_pricing_suggestion: {
         en: "",
         cz: "Jakou částkou chceš projekt podpořit?"
+    },
+    sin_finish_title: {
+        en: "",
+        cz: "Úspěšně jsi převedl částku na vybranou charitu."
+    },
+    sin_finish_suggestion: {
+        en: "",
+        cz: "Chceš tuto skutečnost egoisticky..."
+    },
+    sin_finish_home_button: {
+        en: "",
+        cz: "Amen"
+    },
+    sin_finish_share: {
+        en: "",
+        cz: "Sdílet na facebooku?"
+    },
+    sin_finish_share_message: {
+        en: "",
+        cz: "Vykup se z hříchu a přispěj také na "
     }
 };

@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../models/charity';
 import { LocalStorageService } from '../../services/localStorage';
+import { SinFinishPage } from '../../pages/sin-finish/sin-finish';
 
 @Component({
   selector: 'sin-pricing',
   templateUrl: 'sin-pricing.html'
 })
 export class SinPricingPage {
-
+  @ViewChild('totalInput') totalInput: ElementRef;
   public total: number;
   public charity: Charity;
   public language: string;
@@ -16,6 +17,7 @@ export class SinPricingPage {
   constructor(
     private navigation: NavController,
     private localStorageService: LocalStorageService,
+    private renderer: Renderer,
     public navParams: NavParams
   ) {
     this.localStorageService.get('lang').then(lang => {
@@ -26,6 +28,14 @@ export class SinPricingPage {
   }
 
   confirm() {
+    //TODO: insert into basket
+    this.navigation.push(SinFinishPage, { charity: this.charity });
+  }
+
+  openTotal() {
+    this.renderer.invokeElementMethod(this.totalInput.nativeElement, 'dispatchEvent', [
+      new MouseEvent('click', { bubbles: true })
+    ]);
   }
 
   add() {
