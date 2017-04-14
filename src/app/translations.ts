@@ -99,6 +99,30 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "...",
         cz: 'Za volantem'
     },
+    sins_type_0_short: {
+        en: "...",
+        cz: 'smilnění'
+    },
+    sins_type_1_short: {
+        en: "...",
+        cz: 'chlastání'
+    },
+    sins_type_2_short: {
+        en: "...",
+        cz: 'fetování'
+    },
+    sins_type_3_short: {
+        en: "...",
+        cz: 'žraní'
+    },
+    sins_type_4_short: {
+        en: "...",
+        cz: 'lhaní'
+    },
+    sins_type_5_short: {
+        en: "...",
+        cz: 'řízení'
+    },
     sins_type_0_question_0: {
         en: "...",
         cz: 'Kolik žen/mužů to bylo'
@@ -475,9 +499,17 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "",
         cz: "Rozhřešení"
     },
-    sin_absolution_description: {
+    sin_absolution_and: {
         en: "",
-        cz: "I Ty..."
+        cz: " a "
+    },
+    sin_absolution_description1: {
+        en: "",
+        cz: "Synu, to tvoje "
+    },
+    sin_absolution_description2: {
+        en: "",
+        cz: "je už opravdu trochu moc..."
     },
     sin_absolution_verse: {
         en: "",
@@ -530,5 +562,13 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     sin_finish_share_message: {
         en: "",
         cz: "Vykup se z hříchu a přispěj také na "
+    },
+    about_title: {
+        en: "",
+        cz: "O Aplikaci"
+    },
+    about_description: {
+        en: "",
+        cz: "Vykup se z hříchu a přispěj také na Vykup se z hříchu a přispěj také na Vykup se z hříchu a přispěj také na Vykup se z hříchu a přispěj také na Vykup se z hříchu a přispěj také na Vykup se z hříchu a přispěj také na  "
     }
 };

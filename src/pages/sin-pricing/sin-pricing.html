@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content text-center scroll="false" class="secondarybg">
-  <div style="height:35%;">
+  <div style="height:120px;">
     <ion-row class="topPart" margin-top>
     </ion-row>
   </div>
@@ -44,10 +44,14 @@
         </button>
       </ion-col>
     </ion-row>
-    <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:0px auto; margin-bottom:10px;"
-      (click)="confirm()">
+    <ion-row>
+      <ion-col>
+        <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px 0; width:100%;"
+          (click)="confirm()">
       {{ 'sin_pricing_button_1' | translate }}<br/>
       {{ 'sin_pricing_button_2' | translate }}
     </button>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-footer>

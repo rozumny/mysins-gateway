@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content text-center scroll="false" class="secondarybg">
-  <div style="height:35%;">
+  <div style="height:120px;">
     <ion-row class="topPart" margin-top>
     </ion-row>
   </div>
@@ -31,16 +31,11 @@
 <ion-footer text-center>
   <ion-toolbar>
     <ion-row>
-      <ion-col width-25>
-        <button ion-fab style="margin:10px auto" (click)="goSinList()">
-      <ion-icon class="add" name="add"></ion-icon>
-    </button>
-      </ion-col>
       <ion-col>
         <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px 0; width:100%;"
           (click)="goHome()">
-      {{ 'sin_finish_home_button' | translate }}
-    </button>
+           {{ 'sin_finish_home_button' | translate }}
+        </button>
       </ion-col>
     </ion-row>
   </ion-toolbar>

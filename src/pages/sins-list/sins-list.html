@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
-  <div *ngIf="!sin" style="height:35%;">
+  <div *ngIf="!sin" style="height:25%;">
     <ion-row class="topPart" margin-top>
     </ion-row>
     <ion-row>
@@ -15,19 +15,19 @@
   <ion-slides [style.height]="getSlidesHeight()" *ngIf="sins" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let sin of sins; let i=index;" [class.bg0]="getClass(sin, 0)" [class.bg1]="getClass(sin, 1)" [class.bg2]="getClass(sin, 2)"
       [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
-      <img style="height:80px;" src="assets/sins/{{i+1}}.png" />
+      <img class="img" src="assets/sins/{{i+1}}.png" />
       <div>
-        <p [class.hide]="getHideClass()">{{sin.title | translate}}</p>
+        <p style="margin:0;" [class.hide]="getHideClass()">{{sin.title | translate}}</p>
       </div>
     </ion-slide>
   </ion-slides>
-  <br/>
+  <br *ngIf="sin" />
   <ion-row *ngIf="sin" class="descriptionPart">
     <ion-col>
       {{questions[questionIndex].title | translate}}
     </ion-col>
   </ion-row>
-  <br/>
+  <br *ngIf="sin" />
   <div *ngIf="sin">
     <div *ngFor="let answer of objectToArrayStoreKeys(questions[questionIndex].answers); let i=index;" class="question" (click)="nextQuestion(answer)">
       {{ answer.title | translate }}

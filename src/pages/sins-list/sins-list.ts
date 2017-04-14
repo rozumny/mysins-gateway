@@ -33,7 +33,12 @@ export class SinsListPage {
 
   nextQuestion(answer: Answer) {
     answer.type = this.questions[this.questionIndex].type;
-    this.answers.push(answer);
+    if (this.answers.length == 0 || !this.answers.find(x => {
+      return x.title.indexOf(this.questions[this.questionIndex].title) > -1;
+    }))
+      this.answers.push(answer);
+    else
+      this.answers[this.answers.length - 1] = answer;
 
     if (this.sin.key != "5" || (answer.title == 'sins_type_5_question_0_answer_6' || answer.title == 'sins_type_5_question_0_answer_7')) {
       if (this.questionIndex < this.questions.length - 1) {
@@ -49,7 +54,8 @@ export class SinsListPage {
   navigate() {
     this.navigation.push(SinAbsolutionPage, {
       total: this.calculateResult(this.answers),
-      answers: this.answers
+      answers: this.answers,
+      sin: this.sins[this.slideIndex]
     });
   }
 
@@ -79,7 +85,7 @@ export class SinsListPage {
   }
 
   getSlidesHeight() {
-    return this.sin ? '30%' : '60%';
+    return this.sin ? '40%' : '65%';
   }
 
   slideChanged() {

@@ -2,7 +2,6 @@ import { Component, Renderer } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LocalStorageService } from '../../services/localStorage';
 import { HomePage } from '../../pages/home/home';
-import { SinsListPage } from '../../pages/sins-list/sins-list';
 import { SocialSharing } from 'ionic-native';
 import { TranslateService } from 'ng2-translate';
 import { Charity } from '../../models/charity';
@@ -40,11 +39,5 @@ export class SinFinishPage {
 
   goHome() {
     this.navigation.setRoot(HomePage);
-  }
-
-  goSinList() {
-    this.navigation.setRoot(HomePage).then(() => {
-      this.navigation.push(SinsListPage);
-    });
   }
 }

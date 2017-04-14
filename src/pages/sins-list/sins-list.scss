@@ -12,20 +12,23 @@ sins-list {
         background-color: color($colors, primary) !important;
     }
     .topPart {
-        height:70%;
+        height:55%;
         background: url("../assets/jesussmall.png") no-repeat 35% 10%;
         background-size: contain;
         background-position: 50% 40%;
     }
     .descriptionPart {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
+    }
+    .img {
+        height:120px;position:relative;top:-10px;
     }
     .hide {
         display: none;
     }
     .middlePart {
-        font-size: 16px;
+        font-size: 18px;
         color: white;
         font-weight: bold;
     }

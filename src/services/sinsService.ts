@@ -11,6 +11,7 @@ export class SinsService {
         this.sins = {
             0: {
                 title: "sins_type_0",
+                short: "sins_type_0_short",
                 questions: {
                     0: {
                         title: "sins_type_0_question_0",
@@ -188,6 +189,7 @@ export class SinsService {
             },
             1: {
                 title: "sins_type_1",
+                short: "sins_type_1_short",
                 questions: {
                     0: {
                         title: "sins_type_1_question_0",
@@ -281,6 +283,7 @@ export class SinsService {
             },
             2: {
                 title: "sins_type_2",
+                short: "sins_type_2_short",
                 questions: {
                     0: {
                         title: "sins_type_2_question_0",
@@ -318,6 +321,7 @@ export class SinsService {
             },
             3: {
                 title: "sins_type_3",
+                short: "sins_type_3_short",
                 questions: {
                     0: {
                         title: "sins_type_3_question_0",
@@ -341,6 +345,7 @@ export class SinsService {
             },
             4: {
                 title: "sins_type_4",
+                short: "sins_type_4_short",
                 questions: {
                     0: {
                         title: "sins_type_4_question_0",
@@ -383,6 +388,7 @@ export class SinsService {
             },
             5: {
                 title: "sins_type_5",
+                short: "sins_type_5_short",
                 questions: {
                     0: {
                         title: "sins_type_5_question_0",

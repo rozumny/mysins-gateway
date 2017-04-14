@@ -2,7 +2,7 @@
   <navbar [title]="pageTitle"></navbar>
 </ion-header>
 
-<ion-content text-center scroll="false" class="secondarybg">
+<ion-content text-center scroll="false" class="secondarybg" (click)="openList()">
   <div style="height:35%;margin-top:30px;">
     <ion-row class="topPart">
     </ion-row>
@@ -33,20 +33,17 @@
   <ion-toolbar>
     <ion-buttons left>
       <button clear ion-button>
-        <img height="20" src="assets/podium.png" />
-      <!--<ion-icon name="podium"></ion-icon>-->
+        <img height="25" src="assets/podium.png" />
     </button>
     </ion-buttons>
     <ion-buttons text-center>
-      <button clear ion-button (click)="openList()">
-        <img height="10" src="assets/arrowup.png" />
-      <!--<ion-icon name="arrow-up"></ion-icon>-->
+      <button [@fade]="fadeState" clear ion-button (click)="openList()">
+        <img height="15" src="assets/arrowup.png" />
     </button>
     </ion-buttons>
     <ion-buttons right>
-      <button clear ion-button>
-        <img height="15" src="assets/question.png" />
-      <!--<ion-icon name="help"></ion-icon>-->
+      <button clear ion-button (click)="openAbout()">
+        <img height="20" src="assets/question.png" />
     </button>
     </ion-buttons>
   </ion-toolbar>

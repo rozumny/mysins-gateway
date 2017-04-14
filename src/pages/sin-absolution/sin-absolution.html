@@ -3,19 +3,19 @@
 </ion-header>
 
 <ion-content text-center scroll="false" text-uppercase class="secondarybg">
-  <div style="height:35%;">
+  <div style="height:120px">
     <ion-row class="topPart" margin-top>
     </ion-row>
   </div>
-  <ion-row margin-top>
+  <ion-row margin-top padding>
     <ion-col *ngIf='!confirmed' class="bold headerPart">
-      {{'sin_absolution_description' | translate}}
+      {{'sin_absolution_description1' | translate}} {{accumulation}} {{'sin_absolution_description2' | translate}}
     </ion-col>
     <ion-col *ngIf='confirmed' class="bold headerPart" text-uppercase>
       {{'sin_absolution_waiting' | translate}}
     </ion-col>
   </ion-row>
-  <ion-row *ngIf="confirmed" margin-top class="descriptionPart italic">
+  <ion-row [@fade]="fadeState" margin-top class="descriptionPart italic">
     <ion-col>
       <div [innerHTML]="'sin_absolution_verse' | translate"></div>
       <ion-spinner margin-top></ion-spinner>
@@ -24,8 +24,20 @@
 </ion-content>
 <ion-footer text-center *ngIf="!confirmed">
   <ion-toolbar>
-    <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px auto" (click)="absolution()">
-      {{ 'sin_absolution_button' | translate }}
+    <ion-row>
+      <ion-col width-25>
+        <button ion-fab style="margin:10px auto" (click)="goSinList()">
+      <ion-icon class="add" name="add"></ion-icon>
     </button>
+      </ion-col>
+      <ion-col>
+        <button class="white" color="primary" text-uppercase ion-button fab-center round large style="margin:10px 0; width:100%;"
+          (click)="absolution()">
+          {{ 'sin_absolution_button' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+
+
   </ion-toolbar>
 </ion-footer>

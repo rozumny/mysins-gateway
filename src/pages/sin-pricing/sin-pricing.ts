@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../models/charity';
 import { LocalStorageService } from '../../services/localStorage';
 import { SinFinishPage } from '../../pages/sin-finish/sin-finish';
+import { MemoryStorageService } from '../../services/memoryStorage';
 
 @Component({
   selector: 'sin-pricing',
@@ -10,7 +11,7 @@ import { SinFinishPage } from '../../pages/sin-finish/sin-finish';
 })
 export class SinPricingPage {
   @ViewChild('totalInput') totalInput: ElementRef;
-  public total: number;
+  public total: number = 0;
   public charity: Charity;
   public language: string;
 
@@ -18,13 +19,21 @@ export class SinPricingPage {
     private navigation: NavController,
     private localStorageService: LocalStorageService,
     private renderer: Renderer,
+    private memoryStorageService: MemoryStorageService,
     public navParams: NavParams
   ) {
     this.localStorageService.get('lang').then(lang => {
       this.language = lang;
       this.charity = this.navParams.data.charity;
-      this.total = this.navParams.data.total;
     });
+
+    var basket = this.memoryStorageService.get('basket');
+    var data = this.navParams.data;
+
+    basket.forEach(x => {
+      this.total += x.total;
+    });
+    this.total += data.total;
   }
 
   confirm() {

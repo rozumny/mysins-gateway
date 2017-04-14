@@ -10,6 +10,7 @@ import { compose } from '@ngrx/core/compose';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { HomePage } from '../pages/home/home';
+import { AboutPage } from '../pages/about/about';
 import { SinsListPage } from '../pages/sins-list/sins-list';
 import { CharityListPage } from '../pages/charity-list/charity-list';
 import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
@@ -37,6 +38,7 @@ import { FormsService } from '../services/formsService';
 import { Utils } from '../services/utilsService';
 import { SigninService } from '../services/signinService';
 import { LocalStorageService } from '../services/localStorage';
+import { MemoryStorageService } from '../services/memoryStorage';
 import { ModalService } from '../services/modalService';
 import { SinsService } from '../services/sinsService';
 import { CharityService } from '../services/charityService';
@@ -60,6 +62,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
   declarations: [
     MyApp,
     HomePage,
+    AboutPage,
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
@@ -100,6 +103,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
   entryComponents: [
     MyApp,
     HomePage,
+    AboutPage,
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
@@ -130,7 +134,8 @@ export class mySinsTranslationLoader implements TranslateLoader {
     SigninService,
     SinsService,
     CharityService,
-    LocalStorageService
+    LocalStorageService,
+    MemoryStorageService
   ]
 })
 export class AppModule { }
