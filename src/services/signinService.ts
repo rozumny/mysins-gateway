@@ -10,7 +10,7 @@ import { SETUSER } from '../reducers/user';
 @Injectable()
 export class SigninService {
 
-    public apiUrl: string = "http://localhost:8080/api/users/";
+    public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/users/";
 
     constructor(
         private utilsService: Utils,
