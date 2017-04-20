@@ -1,8 +1,8 @@
-<button class="sizeRegular lower" clear ion-button *ngIf="user" menuToggle>
+<button [class.white]="white" class="sizeRegular lower" clear ion-button *ngIf="user" menuToggle>
           {{user.username}} &nbsp;
           <ion-icon name="contact"></ion-icon>
         </button>
-<button class="sizeRegular lower" clear ion-button *ngIf="!user" menuToggle>
+<button [class.white]="white" class="sizeRegular lower" clear ion-button *ngIf="!user" menuToggle>
           {{'user_not_signed_in' | translate}} &nbsp;
           <ion-icon name="contact"></ion-icon>
         </button>

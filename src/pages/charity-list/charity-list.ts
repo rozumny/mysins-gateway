@@ -37,7 +37,7 @@ export class CharityListPage {
   }
 
   selectCharity() {
-    this.navigation.push(SinPricingPage, { total: this.navParams.data.total, charity: this.charities[this.charityIndex] });
+    this.navigation.push(SinPricingPage, { total: this.navParams.data.total, charity: this.charities[this.charityIndex], sin: this.navParams.data.sin });
   }
 
   selectCategory(category: CharityCategory) {

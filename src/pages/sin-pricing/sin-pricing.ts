@@ -4,6 +4,7 @@ import { Charity } from '../../models/charity';
 import { LocalStorageService } from '../../services/localStorage';
 import { SinFinishPage } from '../../pages/sin-finish/sin-finish';
 import { MemoryStorageService } from '../../services/memoryStorage';
+import { Utils } from '../../services/utilsService';
 
 @Component({
   selector: 'sin-pricing',
@@ -37,8 +38,11 @@ export class SinPricingPage {
   }
 
   confirm() {
-    //TODO: insert into basket
-    this.navigation.push(SinFinishPage, { charity: this.charity });
+    var basket = this.memoryStorageService.get('basket');
+    var b = Utils.deepCloneObject(basket);
+    b.push({ sin: this.navParams.data.sin });
+    b = b.map(x => x.sin.key);
+    this.navigation.setRoot(SinFinishPage, { charity: this.charity, sins: b, total: this.total });
   }
 
   openTotal() {

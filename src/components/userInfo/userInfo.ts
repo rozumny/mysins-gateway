@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Events } from 'ionic-angular';
 import { TranslateService } from 'ng2-translate';
 import { Store } from '@ngrx/store';
@@ -9,6 +9,7 @@ import { User } from '../../models/user';
     templateUrl: 'userInfo.html'
 })
 export class UserInfo {
+    @Input() white: boolean = false;
     public user: User;
 
     constructor(

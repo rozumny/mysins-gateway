@@ -37,6 +37,7 @@ import { FormService } from '../services/formService';
 import { FormsService } from '../services/formsService';
 import { Utils } from '../services/utilsService';
 import { SigninService } from '../services/signinService';
+import { FileService } from '../services/fileService';
 import { LocalStorageService } from '../services/localStorage';
 import { MemoryStorageService } from '../services/memoryStorage';
 import { ModalService } from '../services/modalService';
@@ -132,6 +133,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     Utils,
     ModalService,
     SigninService,
+    FileService,
     SinsService,
     CharityService,
     LocalStorageService,

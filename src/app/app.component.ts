@@ -60,21 +60,36 @@ export class MyApp {
     this.store.select('user').subscribe((user: User) => {
       this.user = user;
       if (user && user.sins) {
-        var sins = Utils.objectToArrayStoreKeys(user.sins);
-        this.sinsCount = sins.length;
-        this.sinsTotal = sins.reduce((x, y) => x + y.value, 0);
-
-        // compute user's popular sin 
-        var tmp = {};
-        sins.map(x => {
-          if (!tmp[x.sinId])
-            tmp[x.sinId] = { count: 0 };
-
-          tmp[x.sinId].count++;
+        var promises = [];
+        user.sins.forEach(x => {
+          promises.push(this.sinsService.getById(x));
         });
-        var sinId = Utils.objectToArrayStoreKeys(tmp).sort(x => x.count)[0].key;
-        this.sinsService.getById(sinId).then(sin => {
-          this.popularSin = sin;
+
+        Promise.all(promises).then(sins => {
+          this.sinsCount = sins.length;
+          this.sinsTotal = user.total;
+
+          // compute user's popular sin 
+          var tmp = {};
+          sins.map(x => {
+            if (!tmp[x.key])
+              tmp[x.key] = { count: 0 };
+
+            tmp[x.key].count++;
+          });
+
+          var a = Utils.objectToArrayStoreKeys(tmp).sort((x, y) => {
+            if (x.count == y.count)
+              return 1;
+            else
+              return x.count < y.count ? 1 : -1;
+          });
+          if (a.length > 0) {
+            var sinId = a[0].key;
+            this.sinsService.getById(sinId).then(sin => {
+              this.popularSin = sin;
+            });
+          }
         });
       }
     });
@@ -184,7 +199,7 @@ export class MyApp {
     }
   }
 
-  changePublic() {
-    this.signinService.changePublic(this.user);
-  }
+  // changePublic() {
+  //   this.signinService.changePublic(this.user);
+  // }
 }

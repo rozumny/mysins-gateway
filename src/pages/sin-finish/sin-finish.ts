@@ -5,6 +5,11 @@ import { HomePage } from '../../pages/home/home';
 import { SocialSharing } from 'ionic-native';
 import { TranslateService } from 'ng2-translate';
 import { Charity } from '../../models/charity';
+import { Store } from '@ngrx/store';
+// import { User } from '../../models/user';
+import { SigninService } from '../../services/signinService';
+import { FileService } from '../../services/fileService';
+import { ModalService } from '../../services/modalService';
 
 @Component({
   selector: 'sin-finish',
@@ -18,6 +23,10 @@ export class SinFinishPage {
     private navigation: NavController,
     private localStorageService: LocalStorageService,
     private renderer: Renderer,
+    private modalService: ModalService,
+    private signinService: SigninService,
+    private fileService: FileService,
+    private store: Store<string>,
     private translate: TranslateService,
     public navParams: NavParams
   ) {
@@ -25,6 +34,28 @@ export class SinFinishPage {
       this.language = lang;
       this.charity = this.navParams.data.charity;
     });
+
+    //update sins count
+    this.navParams.data.sins.forEach(x => {
+      this.signinService.user.sins.push(x);
+    });
+
+    this.signinService.user.total += this.navParams.data.total;
+
+    this.modalService.showWait(Promise.all([
+      this.signinService.changeUser(this.signinService.user),
+      new Promise<void>((resolve, reject) => {
+        this.fileService.get("total").then(total => {
+          if (total)
+            total += this.navParams.data.total;
+          else
+            total = this.navParams.data.total;
+          this.fileService.set("total", total).then(() => {
+            resolve();
+          });
+        });
+      })
+    ]));
   }
 
   share() {

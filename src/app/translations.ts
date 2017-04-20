@@ -51,6 +51,22 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "Registration successful.",
         cz: 'Registrace proběhla úspěšně.'
     },
+    signin_favourite: {
+        en: "",
+        cz: "Nejoblíbenější hřích"
+    },
+    signin_contributions: {
+        en: "",
+        cz: "Tvoje příspěvky"
+    },
+    signin_number_of_sins: {
+        en: "",
+        cz: "Tvůj počet odpuštěných hříchů"
+    },
+    signin_your_statistics: {
+        en: "",
+        cz: "Tvoje statistika"
+    },
     sin_detail: {
         en: "",
         cz: "Tak jak to bylo?"

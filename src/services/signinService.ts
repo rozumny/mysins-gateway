@@ -11,6 +11,8 @@ import { SETUSER } from '../reducers/user';
 export class SigninService {
 
     public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/users/";
+    // public apiUrl: string = "http://localhost:8080/api/users/";
+    public user: User;
 
     constructor(
         private utilsService: Utils,
@@ -18,6 +20,9 @@ export class SigninService {
         private store: Store<string>,
         private http: Http
     ) {
+        this.store.select('user').subscribe((user: User) => {
+            this.user = user;
+        });
     }
 
     signout(): Promise<void> {
@@ -59,7 +64,7 @@ export class SigninService {
         });
     }
 
-    changePublic(user: User) {
+    changeUser(user: User) {
         return new Promise<void>((resolve, reject) => {
             var headers = new Headers();
             headers.append('x-access-token', user.token);
@@ -68,6 +73,7 @@ export class SigninService {
             this.http.put(this.apiUrl, user, options)
                 .map(res => res.json())
                 .subscribe(response => {
+                    this.store.dispatch({ type: SETUSER, payload: null });
                     this.store.dispatch({ type: SETUSER, payload: user });
                     resolve();
                 }, error => {

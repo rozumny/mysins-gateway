@@ -3,7 +3,7 @@
   <ion-header class="menuToolbar">
     <ion-toolbar>
       <ion-buttons end>
-        <userinfo></userinfo>
+        <userinfo [white]="'true'"></userinfo>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -26,43 +26,43 @@
 
     <div *ngIf="user" padding>
       <ion-row class="text-align-center">
-        <ion-col>
-          Tvoje statistika
+        <ion-col class="white">
+          {{ 'signin_your_statistics' | translate }}
         </ion-col>
       </ion-row>
       <ion-row class="text-align-center">
         <ion-col>
-          Tvůj počet odpuštěných hříchů
+          {{ 'signin_number_of_sins' | translate }}
         </ion-col>
       </ion-row>
       <ion-row class="text-align-center">
-        <ion-col>
+        <ion-col class="white">
           {{ sinsCount }}
         </ion-col>
       </ion-row>
       <br/>
       <ion-row class="text-align-center">
         <ion-col>
-          Tvoje příspěvky
+          {{ 'signin_contributions' | translate }}
         </ion-col>
       </ion-row>
       <ion-row class="text-align-center">
-        <ion-col>
-          {{ sinsTotal }} Kč
+        <ion-col class="white">
+          {{ sinsTotal }} {{ 'currency' | translate }}
         </ion-col>
       </ion-row>
       <br/>
       <ion-row *ngIf="popularSin" class="text-align-center">
         <ion-col>
-          Nejoblíbenější hřích
+          {{ 'signin_favourite' | translate }}
         </ion-col>
       </ion-row>
       <ion-row *ngIf="popularSin" class="text-align-center">
-        <ion-col>
-          {{ popularSin.description }}
+        <ion-col class="white">
+          {{ popularSin.title | translate }}
         </ion-col>
       </ion-row>
-      <br/>
+      <!--<br/>
       <ion-row class="text-align-center">
         <ion-col>
           TVÉ POKÁNÍ BUDE ODESLÁNO DO VEŘEJNÉ STATISTIKY
@@ -72,13 +72,13 @@
         <ion-col style="margin-left: 43%;">
           <ion-toggle [(ngModel)]="user.public" (ionChange)="changePublic()"></ion-toggle>
         </ion-col>
-      </ion-row>
+      </ion-row>-->
     </div>
 
     <ion-footer>
       <ion-toolbar *ngIf="user">
         <ion-buttons end>
-          <button ion-button clear (click)="signout()"> {{'signin_signout' | translate }}
+          <button text-lowercase ion-button class="white" clear (click)="signout()"> {{'signin_signout' | translate }}
   </button>
         </ion-buttons>
       </ion-toolbar>

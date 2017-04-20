@@ -452,6 +452,7 @@ export class SinsService {
     }
 
     getById(id: string): Promise<Sin> {
+        this.sins[id].key = id;
         return Promise.resolve(this.sins[id]);
     }
 

@@ -5,8 +5,9 @@ export class User {
     public password: string;
     public email: string;
     public token: string;
+    public total: number = 0;
     public public: boolean = false;
-    public sins: Map<string, UserSin>
+    public sins: string[] = [];
     constructor() {
     }
 }

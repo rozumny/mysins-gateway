@@ -18,7 +18,7 @@ export class Utils {
         return result;
     }
 
-    deepCloneObject(o: any) {
+    static deepCloneObject(o: any) {
         return JSON.parse(JSON.stringify(o));
     }
 
