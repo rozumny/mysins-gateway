@@ -1,4 +1,4 @@
-import { UserSin } from './userSin';
+// import { UserSin } from './userSin';
 
 export class User {
     public username: string;

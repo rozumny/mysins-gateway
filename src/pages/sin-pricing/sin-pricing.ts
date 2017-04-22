@@ -1,10 +1,12 @@
 import { Component, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, MenuController, NavParams } from 'ionic-angular';
 import { Charity } from '../../models/charity';
 import { LocalStorageService } from '../../services/localStorage';
 import { SinFinishPage } from '../../pages/sin-finish/sin-finish';
 import { MemoryStorageService } from '../../services/memoryStorage';
 import { Utils } from '../../services/utilsService';
+import { SigninService } from '../../services/signinService';
+import { ModalService } from '../../services/modalService';
 
 @Component({
   selector: 'sin-pricing',
@@ -20,6 +22,9 @@ export class SinPricingPage {
     private navigation: NavController,
     private localStorageService: LocalStorageService,
     private renderer: Renderer,
+    public menuCtrl: MenuController,
+    private modalService: ModalService,
+    private signinService: SigninService,
     private memoryStorageService: MemoryStorageService,
     public navParams: NavParams
   ) {
@@ -38,11 +43,16 @@ export class SinPricingPage {
   }
 
   confirm() {
-    var basket = this.memoryStorageService.get('basket');
-    var b = Utils.deepCloneObject(basket);
-    b.push({ sin: this.navParams.data.sin });
-    b = b.map(x => x.sin.key);
-    this.navigation.setRoot(SinFinishPage, { charity: this.charity, sins: b, total: this.total });
+    if (!this.signinService.user) {
+      this.modalService.createToast("signin_please_login").present();
+      this.menuCtrl.open();
+    } else {
+      var basket = this.memoryStorageService.get('basket');
+      var b = Utils.deepCloneObject(basket);
+      b.push({ sin: this.navParams.data.sin });
+      b = b.map(x => x.sin.key);
+      this.navigation.setRoot(SinFinishPage, { charity: this.charity, sins: b, total: this.total });
+    }
   }
 
   openTotal() {
