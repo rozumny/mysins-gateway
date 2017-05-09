@@ -5,6 +5,7 @@ import { SinPricingPage } from '../../pages/sin-pricing/sin-pricing';
 import { CharityCategory, Charity } from '../../models/charity';
 import { Slides, Content } from 'ionic-angular';
 import { LocalStorageService } from '../../services/localStorage';
+import { ModalService } from '../../services/modalService';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
@@ -23,17 +24,24 @@ export class CharityListPage {
     private localStorageService: LocalStorageService,
     public navParams: NavParams,
     private navigation: NavController,
+    private modalService: ModalService,
     private charityService: CharityService
   ) {
-    this.localStorageService.get('lang').then(lang => {
-      this.language = lang;
-      this.charityService.getCategories().then(categories => {
-        this.categories = Utils.objectToArrayStoreKeys(categories);
-        this.charityService.getCharitiesByType(this.categories[0].key).then(x => {
-          this.charities = x;
+
+    var p = new Promise<any>((resolve, reject) => {
+      this.localStorageService.get('lang').then(lang => {
+        this.language = lang;
+        this.charityService.getCategories().then(categories => {
+          this.categories = Utils.objectToArrayStoreKeys(categories);
+          this.charityService.getCharitiesByType(this.categories[0].key).then(x => {
+            this.charities = x;
+            resolve();
+          });
         });
       });
     });
+
+    this.modalService.showWait(p);
   }
 
   selectCharity() {

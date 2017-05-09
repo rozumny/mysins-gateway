@@ -33,29 +33,39 @@ export class SinFinishPage {
     this.localStorageService.get('lang').then(lang => {
       this.language = lang;
       this.charity = this.navParams.data.charity;
-    });
 
-    //update sins count
-    this.navParams.data.sins.forEach(x => {
-      this.signinService.user.sins.push(x);
-    });
 
-    this.signinService.user.total += this.navParams.data.total;
+      //update sins count
+      this.navParams.data.sins.forEach(x => {
+        this.signinService.user.sins.push(x);
+      });
 
-    this.modalService.showWait(Promise.all([
-      this.signinService.changeUser(this.signinService.user),
-      new Promise<void>((resolve, reject) => {
-        this.fileService.get("total").then(total => {
-          if (total)
-            total += this.navParams.data.total;
-          else
-            total = this.navParams.data.total;
-          this.fileService.set("total", total).then(() => {
-            resolve();
+      this.signinService.user.total += this.navParams.data.total;
+
+      this.modalService.showWait(Promise.all([
+        this.signinService.changeUser(this.signinService.user),
+        new Promise<void>((resolve, reject) => {
+          this.fileService.get("total").then(total => {
+            if (total)
+              total += this.navParams.data.total;
+            else
+              total = this.navParams.data.total;
+            this.fileService.set("total", total).then(() => {
+              resolve();
+            });
           });
-        });
-      })
-    ]));
+        }),
+        new Promise<void>((resolve, reject) => {
+          this.fileService.get("charities." + this.charity.key).then(charity => {
+            var x = (charity.total * charity.progress) / 100;
+            var y = (100 * (x + this.navParams.data.total)) / charity.total;
+            this.fileService.set("charities." + this.charity.key + ".progress", Math.round(y)).then(() => {
+              resolve();
+            });
+          });
+        })
+      ]));
+    });
   }
 
   share() {

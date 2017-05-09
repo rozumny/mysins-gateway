@@ -11,7 +11,7 @@
     </ion-col>
   </ion-row>
   <ion-slides [style.height]="'35%'" *ngIf="charities" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
-    <ion-slide (click)="selectCharity()" padding class="slidePart" [style.background-image]="'url(../assets/charity/1.jpg)'"
+    <ion-slide (click)="selectCharity()" padding class="slidePart" [style.background-image]="'url(http://rm2kofola.rollingmobile.cz:8082/'+charity.img+')'"
       *ngFor="let charity of charities; let i=index;">
       <div>
         <p color='primary'>{{charity.title[language]}}</p>
