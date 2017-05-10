@@ -119,6 +119,14 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "...",
         cz: 'Za volantem'
     },
+    sins_type_6: {
+        en: "...",
+        cz: 'Zhýralost'
+    },
+    sins_type_7: {
+        en: "...",
+        cz: 'Jiný hřích'
+    },
     sins_type_0_short: {
         en: "...",
         cz: 'smilnění'
@@ -143,83 +151,91 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
         en: "...",
         cz: 'řízení'
     },
-    sins_type_0_question_0: {
+    sins_type_6_short: {
         en: "...",
-        cz: 'Kolik žen/mužů to bylo'
+        cz: 'hýření'
     },
-    sins_type_0_question_0_answer_0: {
+    sins_type_7_short: {
         en: "...",
-        cz: 'ruční práce'
-    },
-    sins_type_0_question_0_answer_1: {
-        en: "...",
-        cz: '1'
-    },
-    sins_type_0_question_0_answer_2: {
-        en: "...",
-        cz: '2'
-    },
-    sins_type_0_question_0_answer_3: {
-        en: "...",
-        cz: '3'
-    },
-    sins_type_0_question_0_answer_4: {
-        en: "...",
-        cz: 'víc'
+        cz: 'jiné'
     },
     sins_type_0_question_1: {
         en: "...",
-        cz: 'Kdo to byl'
+        cz: 'Kolik žen/mužů to bylo'
     },
     sins_type_0_question_1_answer_0: {
         en: "...",
-        cz: 'blondýna'
+        cz: 'ruční práce'
     },
     sins_type_0_question_1_answer_1: {
         en: "...",
-        cz: 'bruneta'
+        cz: '1'
     },
     sins_type_0_question_1_answer_2: {
         en: "...",
-        cz: 'zrzka'
+        cz: '2'
     },
     sins_type_0_question_1_answer_3: {
         en: "...",
-        cz: 'jiný nespecifikovatelný úlet'
+        cz: '3'
     },
     sins_type_0_question_1_answer_4: {
         en: "...",
+        cz: 'víc'
+    },
+    sins_type_0_question_0: {
+        en: "...",
+        cz: 'Kdo to byl'
+    },
+    sins_type_0_question_0_answer_0: {
+        en: "...",
+        cz: 'blondýna'
+    },
+    sins_type_0_question_0_answer_1: {
+        en: "...",
+        cz: 'bruneta'
+    },
+    sins_type_0_question_0_answer_2: {
+        en: "...",
+        cz: 'zrzka'
+    },
+    sins_type_0_question_0_answer_3: {
+        en: "...",
+        cz: 'jiný nespecifikovatelný úlet'
+    },
+    sins_type_0_question_0_answer_4: {
+        en: "...",
         cz: 'vymazlená kočička'
     },
-    sins_type_0_question_1_answer_5: {
+    sins_type_0_question_0_answer_5: {
         en: "...",
         cz: 'průměrné zboží'
     },
-    sins_type_0_question_1_answer_6: {
+    sins_type_0_question_0_answer_6: {
         en: "...",
         cz: 'ošklivka (charitativní počin)'
     },
-    sins_type_0_question_1_answer_7: {
+    sins_type_0_question_0_answer_7: {
         en: "...",
         cz: 'prostorově výrazná (charitavní počin)'
     },
-    sins_type_0_question_1_answer_8: {
+    sins_type_0_question_0_answer_8: {
         en: "...",
         cz: 'cisterna (charitativní počin)'
     },
-    sins_type_0_question_1_answer_9: {
+    sins_type_0_question_0_answer_9: {
         en: "...",
         cz: 'chlupatá (charitativní počin)'
     },
-    sins_type_0_question_1_answer_10: {
+    sins_type_0_question_0_answer_10: {
         en: "...",
         cz: 'nevoňavá (charitativní počin)'
     },
-    sins_type_0_question_1_answer_11: {
+    sins_type_0_question_0_answer_11: {
         en: "...",
         cz: 'handicap (charitativní počin)'
     },
-    sins_type_0_question_1_answer_12: {
+    sins_type_0_question_0_answer_12: {
         en: "...",
         cz: '70+ (charitativní počin)'
     },
@@ -514,6 +530,62 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     sins_type_5_question_1_answer_2: {
         en: "...",
         cz: 'Vůbec si nepamatuji'
+    },
+    sins_type_6_question_0: {
+        en: "...",
+        cz: 'Tak se přiznej...'
+    },
+    sins_type_6_question_0_answer_0: {
+        en: "...",
+        cz: 'Ten krám jsem nepotřeboval, ale stejně jsem si ho pro radost koupil'
+    },
+    sins_type_6_question_0_answer_1: {
+        en: "...",
+        cz: 'Koupil jsem tu hovadinu jen proto, aby mne ji někdo záviděl'
+    },
+    sins_type_6_question_0_answer_2: {
+        en: "...",
+        cz: 'Opravdu to potřebuji, ale koupil jsem dražší věc, než jsem zrovna potřeboval'
+    },
+    sins_type_6_question_0_answer_3: {
+        en: "...",
+        cz: 'Koupil jsem něco, aby to neměl někdo jiný' 
+    },
+    sins_type_6_question_0_answer_4: {
+        en: "...",
+        cz: 'Vykoupil jsem všechny LEGO stavebnice' 
+    },
+    sins_type_6_question_1: {
+        en: "...",
+        cz: 'To jsi neřekl vše...'
+    },
+    sins_type_6_question_1_answer_0: {
+        en: "...",
+        cz: 'Děti nemají co jíst, ale prostě jsem neodolal, cítím se provinile'
+    },
+    sins_type_6_question_1_answer_1: {
+        en: "...",
+        cz: 'Byl to úlet a koupil jsem něco, co nikdo rozumný nepotřebuje (ponorka, kolotoč, CD Michala Davida), cítím se pod psa'
+    },
+    sins_type_6_question_1_answer_2: {
+        en: "...",
+        cz: 'Mohl jsem si koupit i větší nesmysl za víc peněz a rodina netrpí, tak co...'
+    },
+    sins_type_7_question_0: {
+        en: "...",
+        cz: 'Takže ty nám nepovíš, co jsi provedl? Dobře, tak se ohodnoť sám...'
+    },
+    sins_type_7_question_0_answer_0: {
+        en: "...",
+        cz: 'Nic horšího jsem už nemohl provést'
+    },
+    sins_type_7_question_0_answer_1: {
+        en: "...",
+        cz: 'Stávají se horší věci, ale hrdý na to nejsem'
+    },
+    sins_type_7_question_0_answer_2: {
+        en: "...",
+        cz: 'Vlastně se nic tak hrozného nestalo'
     },
     sin_absolution_button: {
         en: "",

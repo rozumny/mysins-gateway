@@ -12,29 +12,7 @@ export class SinsService {
             0: {
                 title: "sins_type_0",
                 short: "sins_type_0_short",
-                questions: {
-                    1: {
-                        title: "sins_type_0_question_1",
-                        type: "multi",
-                        answers: {
-                            0: {
-                                title: "sins_type_0_question_1_answer_0",
-                                value: "1.2"
-                            },
-                            1: {
-                                title: "sins_type_0_question_1_answer_1",
-                                value: "1.0"
-                            },
-                            2: {
-                                title: "sins_type_0_question_1_answer_2",
-                                value: "1.2"
-                            },
-                            3: {
-                                title: "sins_type_0_question_1_answer_3",
-                                value: "1.4"
-                            },                           
-                        }
-                    },
+                questions: {                    
                     0: {
                         title: "sins_type_0_question_0",
                         type: "multi",
@@ -91,6 +69,28 @@ export class SinsService {
                                 title: "sins_type_0_question_0_answer_12",
                                 value: "0.7"
                             }
+                        }
+                    },
+                    1: {
+                        title: "sins_type_0_question_1",
+                        type: "multi",
+                        answers: {
+                            0: {
+                                title: "sins_type_0_question_1_answer_0",
+                                value: "1.2"
+                            },
+                            1: {
+                                title: "sins_type_0_question_1_answer_1",
+                                value: "1.0"
+                            },
+                            2: {
+                                title: "sins_type_0_question_1_answer_2",
+                                value: "1.2"
+                            },
+                            3: {
+                                title: "sins_type_0_question_1_answer_3",
+                                value: "1.4"
+                            },                           
                         }
                     },
                     2: {
@@ -620,7 +620,31 @@ export class SinsService {
                         }
                     }
                 }
+            },
+            7: {
+                title: "sins_type_7",
+                questions: {
+                    0: {
+                        title: "sins_type_7_question_0",
+                        type: "base",
+                        answers: {
+                            0: {
+                                title: "sins_type_7_question_0_answer_0",
+                                value: "100"
+                            },
+                            1: {
+                                title: "sins_type_7_question_0_answer_1",
+                                value: "50"
+                            },
+                            2: {
+                                title: "sins_type_7_question_0_answer_2",
+                                value: "20"
+                            }
+                        }
+                    },
+                }
             }
+
         };
     }
 
