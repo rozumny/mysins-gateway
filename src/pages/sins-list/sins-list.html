@@ -14,7 +14,8 @@
   </div>
   <ion-slides [style.height]="getSlidesHeight()" *ngIf="sins" class="middlePart" pager (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let sin of sins; let i=index;" [class.bg0]="getClass(sin, 0)" [class.bg1]="getClass(sin, 1)" [class.bg2]="getClass(sin, 2)"
-      [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4) " [class.bg5]="getClass(sin, 5) ">
+      [class.bg3]="getClass(sin, 3)" [class.bg4]="getClass(sin, 4)" [class.bg5]="getClass(sin, 5)" [class.bg6]="getClass(sin, 6)"
+      [class.bg7]="getClass(sin, 7)">
       <img class="img" src="assets/sins/{{i+1}}.png" />
       <div>
         <p style="margin:0;" [class.hide]="getHideClass()">{{sin.title | translate}}</p>
