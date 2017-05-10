@@ -4,6 +4,7 @@ import { MemoryStorageService } from '../../services/memoryStorage';
 import { FileService } from '../../services/fileService';
 import { SinsListPage } from '../../pages/sins-list/sins-list';
 import { AboutPage } from '../../pages/about/about';
+import { StatsPage } from '../../pages/stats/stats';
 import { NavController } from 'ionic-angular';
 import { ModalService } from '../../services/modalService';
 
@@ -59,6 +60,10 @@ export class HomePage {
 
   openList() {
     this.navigation.push(SinsListPage);
+  }
+
+  openStats() {
+    this.navigation.push(StatsPage);
   }
 
   openAbout() {

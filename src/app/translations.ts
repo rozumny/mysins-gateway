@@ -549,11 +549,11 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     },
     sins_type_6_question_0_answer_3: {
         en: "...",
-        cz: 'Koupil jsem něco, aby to neměl někdo jiný' 
+        cz: 'Koupil jsem něco, aby to neměl někdo jiný'
     },
     sins_type_6_question_0_answer_4: {
         en: "...",
-        cz: 'Vykoupil jsem všechny LEGO stavebnice' 
+        cz: 'Vykoupil jsem všechny LEGO stavebnice'
     },
     sins_type_6_question_1: {
         en: "...",
@@ -654,6 +654,14 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     sin_finish_share_message: {
         en: "",
         cz: "Vykup se z hříchu a přispěj také na "
+    },
+    stats_title: {
+        en: "",
+        cz: "Statistika"
+    },
+    stats_description: {
+        en: "",
+        cz: "Připravujeme..."
     },
     about_title: {
         en: "",

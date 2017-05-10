@@ -11,6 +11,7 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
+import { StatsPage } from '../pages/stats/stats';
 import { SinsListPage } from '../pages/sins-list/sins-list';
 import { CharityListPage } from '../pages/charity-list/charity-list';
 import { SinAbsolutionPage } from '../pages/sin-absolution/sin-absolution';
@@ -64,6 +65,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     MyApp,
     HomePage,
     AboutPage,
+    StatsPage,
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
@@ -105,6 +107,7 @@ export class mySinsTranslationLoader implements TranslateLoader {
     MyApp,
     HomePage,
     AboutPage,
+    StatsPage,
     SinsListPage,
     CharityListPage,
     SinAbsolutionPage,
