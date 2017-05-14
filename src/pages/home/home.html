@@ -1,45 +1,52 @@
-<ion-header color="primary">
-  <navbar [title]="pageTitle"></navbar>
-</ion-header>
-
-<ion-content text-center scroll="false" class="secondarybg" (click)="openList()">
-  <div style="height:55%;margin-top:30px;margin-bottom:60px;">
-    <ion-row class="topPart">
+<ion-content text-center scroll="false" class="secondarybg" padding>
+  <div style="height:120px;">
+    <ion-row class="topPart" margin-top>
     </ion-row>
   </div>
+  <br/>
   <ion-row>
-    <ion-col class="description">
-      {{'sins_total_description' | translate}}
+    <ion-col class="bold headerPart" text-uppercase>
+      {{'home_title' | translate}}
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col class="total">
-      {{total}} {{'currency' | translate}}
+  <br/>
+  <ion-row *ngIf="!paymentAccepted">
+    <ion-col>
+      {{ 'home_description' | translate }}
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col class="description">
-      {{'sins_total_description2' | translate}}
+  <br *ngIf="!paymentAccepted" />
+  <ion-row *ngIf="paymentError && paymentError.length > 0">
+    <ion-col>
+      <ion-icon class="error" name="alert"></ion-icon> {{paymentError}}
+    </ion-col>
+  </ion-row>
+  <form action="/" method="post" id="cardForm" *ngIf="!paymentAccepted">
+    <label class="hosted-fields--label" for="card-number">{{ 'home_card_number' | translate }}</label>
+    <div id="card-number" class="hosted-field"></div>
+
+    <label class="hosted-fields--label" for="expiration-date">{{ 'home_expiration_date' | translate }}</label>
+    <div id="expiration-date" class="hosted-field"></div>
+
+    <label class="hosted-fields--label" for="cvv">{{ 'home_cvv' | translate }}</label>
+    <div id="cvv" class="hosted-field"></div>
+
+    <div class="button-container">
+      <button class="white" color="primary" text-uppercase ion-button fab-center round style="margin:0px 0 10px 0;" (click)="submit()">
+           {{ 'home_submit_button' | translate }}
+        </button>
+    </div>
+  </form>
+  <ion-row *ngIf="paymentAccepted">
+    <ion-col>
+      <ion-icon class="green" name="checkmark"></ion-icon> {{"home_payment_accepted" | translate}}
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="paymentAccepted">
+    <ion-col>
+      <button class="white" color="primary" text-uppercase ion-button fab-center round style="margin:20px 0;" (click)="closeWindow()">
+           {{ 'home_button' | translate }}
+        </button>
     </ion-col>
   </ion-row>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-buttons left>
-      <button clear ion-button (click)="openStats()">
-        <img height="25" src="assets/podium.png" />
-    </button>
-    </ion-buttons>
-    <ion-buttons text-center>
-      <button [@fade]="fadeState" clear ion-button (click)="openList()">
-        <img height="15" src="assets/arrowup.png" />
-    </button>
-    </ion-buttons>
-    <ion-buttons right>
-      <button clear ion-button (click)="openAbout()">
-        <img height="20" src="assets/question.png" />
-    </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

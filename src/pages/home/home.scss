@@ -1,30 +1,108 @@
 home {
+    font-size: 12px;
+
+    .swiper-pagination-bullet 
+    {
+        width: 12px;
+        height: 12px;
+        background-color: #fff !important;
+    }
+    .swiper-pagination-bullet-active
+    {
+        background-color: color($colors, primary) !important;
+    }
     .topPart {
-        height: 100%;
-        background: url("../assets/logo.png") no-repeat 35% 10%;
+        height:100%;
+        background: url("../assets/jesus.png") no-repeat 35% 10%;
         background-size: contain;
         background-position: 50% 40%;
     }
-    .title {
-        font-size: 30px;
-        margin: 30px 0;
-        font-weight: bold;
+    .descriptionPart {
+        font-size: 16px;
+       
     }
-    .description {
-        font-size: 13px;
-        padding: 0 30px
+    .headerPart {
+        font-size: 18px;
+        font-weight: bold;
     }
     .middlePart {
         font-size: 16px;
         color: white;
         font-weight: bold;
     }
+    .totalButtons button {
+        font-size: 18px;
+        margin-right:0;
+        display:inline-block;
+    }
+
     .total {
-        color: color($colors, primary);
-        font-size: 24px;
+        display: none;
+    }
+
+    .totalButtons {
+        font-size: 18px;
+        margin:0;
+    }
+    .share {
         font-weight: bold;
+        color: color($colors, primary);
+        border: 1px solid color($colors, primary);
     }
-    ion-footer {
-        height: 45px;
-    }
+
+    .hosted-field {
+            height: 50px;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            display: inline-block;
+            // box-shadow: none;
+            // font-weight: 600;
+            // font-size: 14px;
+            // border-radius: 6px;
+            border: 1px solid #dddddd;
+            // line-height: 20px;
+            background: #fcfcfc;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, white 50%, #fcfcfc 50%);
+            background-size: 200% 100%;
+            background-position: right bottom;
+            transition: all 300ms ease-in-out;
+        }
+
+        .hosted-fields--label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .button-container {
+            display: block;
+            text-align: center;
+        }
+
+        .braintree-hosted-fields-focused {
+            border: 1px solid #64d18a;
+            border-radius: 1px;
+            background-position: left bottom;
+        }
+
+        .green {
+            color: #64d18a;
+        }
+
+        .braintree-hosted-fields-invalid {
+            border: 1px solid #ed574a;
+        }
+
+        .error {
+            color: #ed574a;
+        }
+
+        .braintree-hosted-fields-valid {}
+
+        #cardForm {
+            max-width: 50.75em;
+            margin: 0 auto;
+        }
 }

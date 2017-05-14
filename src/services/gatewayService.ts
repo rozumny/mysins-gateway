@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-// import { User } from '../models/user';
 import { Headers, Http, RequestOptions } from '@angular/http';
 
 @Injectable()
-export class FileService {
+export class GatewayService {
 
-    public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/files/";
-    // public apiUrl: string = "http://localhost:8080/api/files/";
+    // public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/users";
+    public apiUrl: string = "http://localhost:8082/api/users";
+
 
     constructor(
         private http: Http
     ) {
     }
 
-    get(key: string): Promise<any> {
-        return new Promise<void>((resolve, reject) => {
+    getToken(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
             var headers = new Headers();
             var options = new RequestOptions({ headers: headers });
 
-            this.http.get(this.apiUrl + key, options)
+            this.http.get(this.apiUrl + "/client_token", options)
                 .map(res => res.json())
                 .subscribe(response => {
                     resolve(response.value);
@@ -28,15 +28,15 @@ export class FileService {
         });
     }
 
-    set(key: string, value: any): Promise<any> {
-        return new Promise<void>((resolve, reject) => {
+    checkout(nonce: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
             var headers = new Headers();
-             var options = new RequestOptions({ headers: headers });
+            var options = new RequestOptions({ headers: headers });
 
-            this.http.put(this.apiUrl + key, { value: value }, options)
+            this.http.post(this.apiUrl + "/checkout", { nonce: nonce }, options)
                 .map(res => res.json())
                 .subscribe(response => {
-                    resolve();
+                    resolve(response.msg);
                 }, error => {
                     reject(error);
                 });

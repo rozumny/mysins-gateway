@@ -1,72 +1,128 @@
-import { Component, trigger, state, style, transition, animate } from '@angular/core';
-import { SinsService } from '../../services/sinsService';
-import { MemoryStorageService } from '../../services/memoryStorage';
+import { Component, Renderer } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { LocalStorageService } from '../../services/localStorage';
+import { TranslateService } from 'ng2-translate';
+import { Charity } from '../../models/charity';
 import { FileService } from '../../services/fileService';
-import { SinsListPage } from '../../pages/sins-list/sins-list';
-import { AboutPage } from '../../pages/about/about';
-import { StatsPage } from '../../pages/stats/stats';
-import { NavController } from 'ionic-angular';
+import { GatewayService } from '../../services/gatewayService';
 import { ModalService } from '../../services/modalService';
 
 @Component({
   selector: 'home',
-  templateUrl: 'home.html',
-  animations: [trigger('fade', [
-    state('visible', style({
-      opacity: 1
-    })),
-    state('invisible', style({
-      opacity: 0
-    })),
-    transition('invisible <=> visible', animate('1500ms ease-in'))
-  ])]
+  templateUrl: 'home.html'
 })
 export class HomePage {
-  public fadeState: String = 'visible';
-  public total: number = 0;
-  private interval: any;
+  public language: string;
+  public charity: Charity;
+  public paymentAccepted: boolean = false;
+  public paymentError: string;
+  private hostedFieldsInstance: any;
 
   constructor(
     private navigation: NavController,
-    private memoryStorageService: MemoryStorageService,
-    private fileService: FileService,
+    private localStorageService: LocalStorageService,
+    private renderer: Renderer,
+    private gatewayService: GatewayService,
     private modalService: ModalService,
-    private sinsService: SinsService
+    private fileService: FileService,
+    private translate: TranslateService,
+    public navParams: NavParams
   ) {
-  }
-
-  ionViewDidEnter() {
-    this.modalService.showWait(this.fileService.get("total")).then(result => {
-      if (result)
-        this.total = result;
+    this.localStorageService.get('lang').then(lang => {
+      this.language = lang;
     });
-    this.memoryStorageService.set('basket', []);
-    this.fadeState = 'invisible';
-    setTimeout(() => {
-      this.fadeState = 'visible';
-    }, 1500);
-
-    this.interval = setInterval(() => {
-      this.fadeState = 'invisible';
-      setTimeout(() => {
-        this.fadeState = 'visible';
-      }, 1500);
-    }, 3000);
+    // this.modalService.showWait(Promise.all([
+    //   }),
   }
 
-  ionViewDidLeave() {
-    clearInterval(this.interval);
+  ngAfterViewInit() {
+    var __this = this;
+    var p = new Promise<void>((resolve, reject) => {
+      var form = document.querySelector('#cardForm');
+
+      this.gatewayService.getToken().then(token => {
+        var authorization = token;
+
+        (<any>window).braintree.client.create({
+          authorization: authorization
+        }, (err, clientInstance) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          createHostedFields(clientInstance);
+        });
+
+        function createHostedFields(clientInstance) {
+          (<any>window).braintree.hostedFields.create({
+            client: clientInstance,
+            styles: {
+              'input': {
+                'font-size': '16px',
+                'font-family': 'courier, monospace',
+                'font-weight': 'lighter',
+                'color': '#ccc'
+              },
+              ':focus': {
+                'color': 'black'
+              },
+              '.valid': {
+                'color': '#8bdda8'
+              }
+            },
+            fields: {
+              number: {
+                selector: '#card-number',
+                placeholder: '4111 1111 1111 1111'
+              },
+              cvv: {
+                selector: '#cvv',
+                placeholder: '123'
+              },
+              expirationDate: {
+                selector: '#expiration-date',
+                placeholder: 'MM/YYYY'
+              }
+            }
+          }, (err, hostedFieldsInstance) => {
+            __this.hostedFieldsInstance = hostedFieldsInstance;
+            resolve();
+          });
+        }
+      });
+    });
+    this.modalService.showWait(p);
   }
 
-  openList() {
-    this.navigation.push(SinsListPage);
+  submit() {
+    if (this.hostedFieldsInstance._state.fields.cvv.isValid &&
+      this.hostedFieldsInstance._state.fields.expirationDate.isValid &&
+      this.hostedFieldsInstance._state.fields.number.isValid
+    ) {
+
+      var p = new Promise<void>((resolve, reject) => {
+        this.hostedFieldsInstance.tokenize((tokenizeErr, payload) => {
+          if (tokenizeErr) {
+            return;
+          }
+
+          this.gatewayService.checkout(payload.nonce).then((response) => {
+            if (response == 'ok') {
+              this.paymentAccepted = true;
+              this.paymentError = "";
+            } else {
+              this.paymentError = response;
+            }
+            resolve();
+          });
+        });
+      });
+
+      this.modalService.showWait(p);
+    }
   }
 
-  openStats() {
-    this.navigation.push(StatsPage);
-  }
-
-  openAbout() {
-    this.navigation.push(AboutPage);
+  closeWindow() {
+    alert("close window");
   }
 }
