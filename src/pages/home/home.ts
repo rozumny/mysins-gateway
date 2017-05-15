@@ -17,6 +17,7 @@ export class HomePage {
   public paymentAccepted: boolean = false;
   public paymentError: string;
   private hostedFieldsInstance: any;
+  private transactionId: string;
 
   constructor(
     private navigation: NavController,
@@ -31,6 +32,10 @@ export class HomePage {
     this.localStorageService.get('lang').then(lang => {
       this.language = lang;
     });
+
+    var splitted = window.location.search.slice(1).split('=')
+    this.transactionId = splitted[1];
+
     // this.modalService.showWait(Promise.all([
     //   }),
   }
@@ -123,6 +128,6 @@ export class HomePage {
   }
 
   closeWindow() {
-    alert("close window");
+    window.close();
   }
 }
