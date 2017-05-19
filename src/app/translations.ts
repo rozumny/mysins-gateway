@@ -5,7 +5,7 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     },
     home_description: {
         en: '',
-        cz: 'Prosím zadejte platební údaje'
+        cz: 'Přispíváte %sKč na %s.'
     },
     home_button: {
         en: '',

@@ -3,9 +3,11 @@ import { NavController, NavParams } from 'ionic-angular';
 import { LocalStorageService } from '../../services/localStorage';
 import { TranslateService } from 'ng2-translate';
 import { Charity } from '../../models/charity';
+import { Transaction } from '../../models/transaction';
 import { FileService } from '../../services/fileService';
 import { GatewayService } from '../../services/gatewayService';
 import { ModalService } from '../../services/modalService';
+import { sprintf } from "sprintf-js";
 
 @Component({
   selector: 'home',
@@ -14,10 +16,12 @@ import { ModalService } from '../../services/modalService';
 export class HomePage {
   public language: string;
   public charity: Charity;
+  public transaction: Transaction;
   public paymentAccepted: boolean = false;
   public paymentError: string;
   private hostedFieldsInstance: any;
   private transactionId: string;
+  public message: string;
 
   constructor(
     private navigation: NavController,
@@ -29,15 +33,8 @@ export class HomePage {
     private translate: TranslateService,
     public navParams: NavParams
   ) {
-    this.localStorageService.get('lang').then(lang => {
-      this.language = lang;
-    });
-
     var splitted = window.location.search.slice(1).split('=')
     this.transactionId = splitted[1];
-
-    // this.modalService.showWait(Promise.all([
-    //   }),
   }
 
   ngAfterViewInit() {
@@ -96,13 +93,35 @@ export class HomePage {
         }
       });
     });
-    this.modalService.showWait(p);
+    this.modalService.showWait(Promise.all([
+      p,
+      new Promise<void>((resolve, reject) => {
+        this.localStorageService.get('lang').then(lang => {
+          this.fileService.get("transactions." + this.transactionId).then(transaction => {
+            this.transaction = transaction;
+
+            if (!this.transaction || this.transaction.finished) {
+              this.paymentAccepted = true;
+              resolve();
+            } else {
+              this.fileService.get("charities." + transaction.charityId).then(charity => {
+                this.charity = charity;
+                this.language = lang;
+                this.message = sprintf(this.translate.instant("home_description"), transaction.total, charity.title[lang]);
+                resolve();
+              });
+            }
+          })
+        })
+      })
+    ]));
   }
 
   submit() {
     if (this.hostedFieldsInstance._state.fields.cvv.isValid &&
       this.hostedFieldsInstance._state.fields.expirationDate.isValid &&
-      this.hostedFieldsInstance._state.fields.number.isValid
+      this.hostedFieldsInstance._state.fields.number.isValid &&
+      this.transaction
     ) {
 
       var p = new Promise<void>((resolve, reject) => {
@@ -111,10 +130,20 @@ export class HomePage {
             return;
           }
 
-          this.gatewayService.checkout(payload.nonce).then((response) => {
+          this.gatewayService.checkout(payload.nonce, this.transaction.total).then((response) => {
             if (response == 'ok') {
               this.paymentAccepted = true;
               this.paymentError = "";
+
+              //close transaction
+              var x = (this.charity.total * this.charity.progress) / 100;
+              var y = (100 * (x + this.transaction.total)) / this.charity.total;
+              this.fileService.set("charities." + this.charity.key + ".progress", Math.round(y)).then(() => {
+                this.fileService.set("transactions." + this.transactionId + ".finished", true).then(() => {
+                  resolve();
+                });
+              });
+
             } else {
               this.paymentError = response;
             }

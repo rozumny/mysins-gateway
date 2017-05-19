@@ -28,12 +28,12 @@ export class GatewayService {
         });
     }
 
-    checkout(nonce: string): Promise<string> {
+    checkout(nonce: string, total: number): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             var headers = new Headers();
             var options = new RequestOptions({ headers: headers });
 
-            this.http.post(this.apiUrl + "/checkout", { nonce: nonce }, options)
+            this.http.post(this.apiUrl + "/checkout", { nonce: nonce, total: total }, options)
                 .map(res => res.json())
                 .subscribe(response => {
                     resolve(response.msg);
