@@ -4,9 +4,9 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 @Injectable()
 export class GatewayService {
 
-    public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/users";
+    // public apiUrl: string = "http://rm2kofola.rollingmobile.cz:8082/api/users";
     // public apiUrl: string = "http://localhost:8082/api/users";
-
+    public apiUrl: string = "http://api.sugarman.cz/api/users/";
 
     constructor(
         private http: Http
