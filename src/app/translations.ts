@@ -1,7 +1,7 @@
 export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     home_title: {
         en: '',
-        cz: 'Platební údaje'
+        cz: 'Platba dokončena'
     },
     home_description: {
         en: '',
@@ -13,7 +13,7 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     },
     home_payment_accepted: {
         en: '',
-        cz: 'Platba přijata. Vraťte se prosím zpět do aplikace.'
+        cz: 'Pro zjištění stavu platby se prosím vraťte zpět do aplikace.'
     },
     home_card_number: {
         en: 'Card Number',

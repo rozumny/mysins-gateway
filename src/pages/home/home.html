@@ -16,12 +16,12 @@
     </ion-col>
   </ion-row>
   <br *ngIf="!paymentAccepted" />
-  <ion-row *ngIf="paymentError && paymentError.length > 0">
+  <!--<ion-row *ngIf="paymentError && paymentError.length > 0">
     <ion-col>
       <ion-icon class="error" name="alert"></ion-icon> {{paymentError}}
     </ion-col>
-  </ion-row>
-  <form action="/" method="post" id="cardForm" *ngIf="!paymentAccepted">
+  </ion-row>-->
+  <!--<form action="/" method="post" id="cardForm" *ngIf="!paymentAccepted">
     <label class="hosted-fields--label" for="card-number">{{ 'home_card_number' | translate }}</label>
     <div id="card-number" class="hosted-field"></div>
 
@@ -36,17 +36,19 @@
            {{ 'home_submit_button' | translate }}
         </button>
     </div>
-  </form>
+  </form>-->
   <ion-row *ngIf="paymentAccepted">
     <ion-col>
-      <ion-icon class="green" name="checkmark"></ion-icon> {{"home_payment_accepted" | translate}}
+      <!--<ion-icon class="green" name="checkmark">
+        </ion-icon> -->
+      {{"home_payment_accepted" | translate}}
     </ion-col>
   </ion-row>
   <ion-row *ngIf="paymentAccepted">
     <ion-col>
       <button class="white" color="primary" text-uppercase ion-button fab-center round style="margin:20px 0;" (click)="closeWindow()">
            {{ 'home_button' | translate }}
-        </button>
+      </button>
     </ion-col>
   </ion-row>
 </ion-content>
