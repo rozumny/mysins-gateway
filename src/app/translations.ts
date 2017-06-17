@@ -13,7 +13,7 @@ export var APP_TRANSLATIONS: { [key: string]: { [key: string]: string } } = {
     },
     home_payment_accepted: {
         en: '',
-        cz: 'Pro zjištění stavu platby se prosím vraťte zpět do aplikace.'
+        cz: 'Zavřete toto okno a vraťte se zpět do aplikace.'
     },
     home_card_number: {
         en: 'Card Number',
